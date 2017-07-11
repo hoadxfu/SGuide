@@ -5,6 +5,7 @@
 	};
 	objectVersion = 46;
 	objects = {
+
 /* Begin PBXBuildFile section */
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
 		00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302BA1ABCB90400DB3ED1 /* libRCTGeolocation.a */; };
@@ -37,8 +38,8 @@
 		2D02E4C81E0B4AEC006451C7 /* libRCTWebSocket-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3E991DF850E9000B6D8A /* libRCTWebSocket-tvOS.a */; };
 		2D02E4C91E0B4AEC006451C7 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3EA31DF850E9000B6D8A /* libReact.a */; };
 		2DCD954D1E0B4F2C00145EB5 /* SGuideTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* SGuideTests.m */; };
-		36D958641F13AD1A009EE80E /* Lottie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36D958281F13ACDF009EE80E /* Lottie.framework */; };
-		36D958651F13AD1A009EE80E /* Lottie.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 36D958281F13ACDF009EE80E /* Lottie.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		36A4A7D51F13D41000D238C8 /* Lottie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36D958281F13ACDF009EE80E /* Lottie.framework */; };
+		36A4A7D61F13D41000D238C8 /* Lottie.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 36D958281F13ACDF009EE80E /* Lottie.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		36D9589D1F13AE89009EE80E /* AIRGMSMarker.m in Sources */ = {isa = PBXBuildFile; fileRef = 36D958781F13AE89009EE80E /* AIRGMSMarker.m */; };
 		36D9589E1F13AE89009EE80E /* AIRGMSPolygon.m in Sources */ = {isa = PBXBuildFile; fileRef = 36D9587A1F13AE89009EE80E /* AIRGMSPolygon.m */; };
 		36D9589F1F13AE89009EE80E /* AIRGMSPolyline.m in Sources */ = {isa = PBXBuildFile; fileRef = 36D9587C1F13AE89009EE80E /* AIRGMSPolyline.m */; };
@@ -162,6 +163,13 @@
 			remoteGlobalIDString = 2D02E47A1E0B4A5D006451C7;
 			remoteInfo = "SGuide-tvOS";
 		};
+		36A4A7D71F13D41000D238C8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6B34DC55EA754542A07D2FD7 /* Lottie.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 62CA59B71E3C173B002D7188;
+			remoteInfo = Lottie_iOS;
+		};
 		36D958271F13ACDF009EE80E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 6B34DC55EA754542A07D2FD7 /* Lottie.xcodeproj */;
@@ -238,13 +246,6 @@
 			proxyType = 2;
 			remoteGlobalIDString = 5DBEB1501B18CEA900B34395;
 			remoteInfo = RNVectorIcons;
-		};
-		36D958661F13AD1A009EE80E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 6B34DC55EA754542A07D2FD7 /* Lottie.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 62CA59B71E3C173B002D7188;
-			remoteInfo = Lottie_iOS;
 		};
 		36D9586C1F13AE41009EE80E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -375,13 +376,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		36D958681F13AD1A009EE80E /* Embed Frameworks */ = {
+		36A4A7D91F13D41000D238C8 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				36D958651F13AD1A009EE80E /* Lottie.framework in Embed Frameworks */,
+				36A4A7D61F13D41000D238C8 /* Lottie.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -510,7 +511,6 @@
 				146834051AC3E58100842450 /* libReact.a in Frameworks */,
 				5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */,
 				00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */,
-				36D958641F13AD1A009EE80E /* Lottie.framework in Frameworks */,
 				00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */,
 				00C302E81ABCBA2D00DB3ED1 /* libRCTImage.a in Frameworks */,
 				133E29F31AD74F7200F7D852 /* libRCTLinking.a in Frameworks */,
@@ -518,6 +518,7 @@
 				139105C61AF99C1200B5F7CC /* libRCTSettings.a in Frameworks */,
 				832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */,
 				00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */,
+				36A4A7D51F13D41000D238C8 /* Lottie.framework in Frameworks */,
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
 				6942B84BB7BF4AF3A36DDE34 /* libAirMaps.a in Frameworks */,
 				37BBFA1A39944F21B6476586 /* libRNVectorIcons.a in Frameworks */,
@@ -917,14 +918,14 @@
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				36D958681F13AD1A009EE80E /* Embed Frameworks */,
 				9770D8D2864D3D456B5312F8 /* [CP] Embed Pods Frameworks */,
 				A3D5BF7913F3D5199BF364BF /* [CP] Copy Pods Resources */,
+				36A4A7D91F13D41000D238C8 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				36D958671F13AD1A009EE80E /* PBXTargetDependency */,
+				36A4A7D81F13D41000D238C8 /* PBXTargetDependency */,
 			);
 			name = SGuide;
 			productName = "Hello World";
@@ -978,7 +979,11 @@
 				TargetAttributes = {
 					00E356ED1AD99517003FC87E = {
 						CreatedOnToolsVersion = 6.2;
+						DevelopmentTeam = 8RJDPEUG29;
 						TestTargetID = 13B07F861A680F5B00A75B9A;
+					};
+					13B07F861A680F5B00A75B9A = {
+						DevelopmentTeam = 8RJDPEUG29;
 					};
 					2D02E47A1E0B4A5D006451C7 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -1221,13 +1226,6 @@
 			fileType = archive.ar;
 			path = libAirMaps.a;
 			remoteRef = 36D9586C1F13AE41009EE80E /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		36D958751F13AE53009EE80E /* libRNI18n-tvOS.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = "libRNI18n-tvOS.a";
-			remoteRef = 36D958741F13AE53009EE80E /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		3DAD3E841DF850E9000B6D8A /* libRCTImage-tvOS.a */ = {
@@ -1550,10 +1548,10 @@
 			target = 2D02E47A1E0B4A5D006451C7 /* SGuide-tvOS */;
 			targetProxy = 2D02E4911E0B4A5D006451C7 /* PBXContainerItemProxy */;
 		};
-		36D958671F13AD1A009EE80E /* PBXTargetDependency */ = {
+		36A4A7D81F13D41000D238C8 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = Lottie_iOS;
-			targetProxy = 36D958661F13AD1A009EE80E /* PBXContainerItemProxy */;
+			targetProxy = 36A4A7D71F13D41000D238C8 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1574,6 +1572,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 8RJDPEUG29;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -1591,9 +1590,7 @@
 				INFOPLIST_FILE = SGuideTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
@@ -1608,6 +1605,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
+				DEVELOPMENT_TEAM = 8RJDPEUG29;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-maps/ios/**",
@@ -1621,9 +1619,7 @@
 				INFOPLIST_FILE = SGuideTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
@@ -1640,6 +1636,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
+				DEVELOPMENT_TEAM = 8RJDPEUG29;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-maps/lib/ios/AirMaps/**",
@@ -1668,6 +1665,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8RJDPEUG29;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-maps/lib/ios/AirMaps/**",
@@ -1714,9 +1712,7 @@
 				);
 				INFOPLIST_FILE = "SGuide-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
@@ -1753,9 +1749,7 @@
 				);
 				INFOPLIST_FILE = "SGuide-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
@@ -1781,9 +1775,7 @@
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = "SGuide-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.SGuide-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
@@ -1805,9 +1797,7 @@
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = "SGuide-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.SGuide-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;

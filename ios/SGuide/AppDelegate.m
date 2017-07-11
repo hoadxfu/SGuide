@@ -17,7 +17,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-  [GMSServices provideAPIKey:@"AIzaSyCmsDFWx-rGZCxB9yk8PN04Q4S_t5C7gmU"];
+  [GMSServices provideAPIKey:@"AIzaSyBjDjJXQxTiDx9nZWnlPaBaQmqa5-S5Q2g"];
   NSURL *jsCodeLocation;
 
   jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index.ios" fallbackResource:nil];
