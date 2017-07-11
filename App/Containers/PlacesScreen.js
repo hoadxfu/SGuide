@@ -3,6 +3,9 @@ import { ScrollView, View, Text } from 'react-native'
 import { connect } from 'react-redux'
 import HorizontalPlaceList from './HorizontalPlaceList'
 import { Button } from 'native-base'
+import Icon from 'react-native-vector-icons/FontAwesome'
+import { Metrics } from '../Themes'
+
 // Add Actions - replace 'Your' with whatever your reducer is called :)
 // import YourActions from '../Redux/YourRedux'
 
@@ -10,6 +13,12 @@ import { Button } from 'native-base'
 import styles from './Styles/PlacesScreenStyle'
 
 class PlacesScreen extends React.Component {
+  static navigationOptions = {
+    drawerLabel: 'Places',
+    drawerIcon: ({ tintColor }) => (
+      <Icon name='map-marker' size={Metrics.iconDrawerSize} color={tintColor} />
+    )
+  };
   // constructor (props) {
   //   super(props)
   //   this.state = {}

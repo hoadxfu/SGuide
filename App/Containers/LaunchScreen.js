@@ -1,11 +1,17 @@
 import React from 'react'
 import { ScrollView, Text, Image, View } from 'react-native'
-import { Images } from '../Themes'
-
+import { Images, Metrics } from '../Themes'
+import Icon from 'react-native-vector-icons/FontAwesome'
 // Styles
 import styles from './Styles/LaunchScreenStyles'
 
 export default class LaunchScreen extends React.Component {
+  static navigationOptions = {
+    drawerLabel: 'Launch Screen',
+    drawerIcon: ({ tintColor }) => (
+      <Icon name='rocket' size={Metrics.iconDrawerSize} color={tintColor} />
+    )
+  };
   render () {
     return (
       <View style={styles.mainContainer}>

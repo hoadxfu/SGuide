@@ -29,7 +29,12 @@ const metrics = {
     medium: 40,
     large: 60,
     logo: 200
-  }
+  },
+  iconDrawer: {
+    width: 24,
+    height: 24
+  },
+  iconDrawerSize: 24
 }
 
 export default metrics
