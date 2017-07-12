@@ -31,7 +31,7 @@ class TourDetailScreen extends React.Component {
   }
 
   handleTabChange () {
-    this._scrollView.scrollTo({x: 0, y: 0, animation: false})
+    this.refs.scrollRef._component.scrollTo({x: 0, y: 0, animated: false})
   }
 
   render () {
@@ -53,7 +53,7 @@ class TourDetailScreen extends React.Component {
           rightButton={<NavButton icon='ios-download-outline' />}
         />
         <Animated.ScrollView
-          // ref={(ref) => { this._scrollView = ref._component }}
+          ref='scrollRef'
           scrollEventThrottle={16}
           onScroll={Animated.event(
             [{nativeEvent: {contentOffset: {y: this.state.scrollY}}}]
