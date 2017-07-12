@@ -61,7 +61,8 @@ class SightList extends React.Component {
   renderRow (rowData) {
     return (
       <View style={styles.row}>
-        <Image source={{ uri: rowData.img }}
+        <Image
+          source={{ uri: rowData.img }}
           style={styles.backgroundImage} resizeMode='stretch' />
 
         <LinearGradient colors={['transparent', 'rgba(0, 0, 0, 0.6)']}
@@ -130,8 +131,8 @@ class SightList extends React.Component {
           renderRow={this.renderRow}
           renderSeparator={this.renderSeparator}
           enableEmptySections
-          pageSize={15}
         />
+        {/* pageSize={15} */}
       </View>
     )
   }

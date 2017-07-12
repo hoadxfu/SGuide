@@ -32,7 +32,7 @@ export default StyleSheet.create({
     padding: Metrics.baseMargin
   },
   listContent: {
-    marginTop: Metrics.baseMargin
+    // marginTop: Metrics.baseMargin
   },
   starRate: {
     alignSelf: 'flex-end',
