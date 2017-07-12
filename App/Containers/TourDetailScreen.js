@@ -31,14 +31,15 @@ class TourDetailScreen extends React.Component {
   }
 
   handleTabChange () {
-    this.refs.scrollRef._component.scrollTo({x: 0, y: 0, animated: false})
+    // this.refs.infoRef._component.scrollTo({x: 0, y: 0, animated: false})
+    // this.refs.reviewRef._component.scrollTo({x: 0, y: 0, animated: false})
   }
 
   render () {
     // header scroll distance for animation
-    const headerHeight = this.state.scrollY.interpolate({
+    const headerTranslate = this.state.scrollY.interpolate({
       inputRange: [0, HEADER_SCROLL_DISTANCE],
-      outputRange: [Metrics.navBarMaxHeight, Metrics.navBarHeight],
+      outputRange: [0, -HEADER_SCROLL_DISTANCE],
       extrapolate: 'clamp'
     })
 
@@ -52,27 +53,38 @@ class TourDetailScreen extends React.Component {
           leftButton={<NavButton icon='ios-arrow-back-outline' onPress={() => this.props.navigation.goBack()} />}
           rightButton={<NavButton icon='ios-download-outline' />}
         />
-        <Animated.ScrollView
-          ref='scrollRef'
-          scrollEventThrottle={16}
-          onScroll={Animated.event(
-            [{nativeEvent: {contentOffset: {y: this.state.scrollY}}}]
-          )}>
-          <ScrollableTabView renderTabBar={
-            () => <CustomTabBar
-              style={{position: 'absolute'}}
-              backgroundColor={Colors.secondary}
-              underlineStyle={{backgroundColor: Colors.snow}}
-              textStyle={{color: Colors.snow}}
-              onTabChange={this.handleTabChange.bind(this)}
-              animatedStyle={{
-                top: headerHeight
-              }} />
-            }>
-            <TabTourInfo tabLabel='Info' />
-            <TabTourReview tabLabel='Review' />
-          </ScrollableTabView>
-        </Animated.ScrollView>
+        <ScrollableTabView renderTabBar={
+          () => <CustomTabBar
+            style={{position: 'absolute', top: Metrics.navBarMaxHeight}}
+            backgroundColor={Colors.secondary}
+            underlineStyle={{backgroundColor: Colors.snow}}
+            textStyle={{color: Colors.snow}}
+            onTabChange={this.handleTabChange.bind(this)}
+            animatedStyle={{
+              transform: [{translateY: headerTranslate}]
+            }} />
+          }>
+          <Animated.ScrollView
+            // ref='infoRef'
+            tabLabel='Info'
+            scrollEventThrottle={16}
+            onScroll={Animated.event(
+              [{nativeEvent: {contentOffset: {y: this.state.scrollY}}}],
+              {useNativeDriver: true}
+            )}>
+            <TabTourInfo />
+          </Animated.ScrollView>
+          <Animated.ScrollView
+            // ref='reviewRef'
+            tabLabel='Review'
+            scrollEventThrottle={16}
+            onScroll={Animated.event(
+              [{nativeEvent: {contentOffset: {y: this.state.scrollY}}}],
+              {useNativeDriver: true}
+            )}>
+            <TabTourReview />
+          </Animated.ScrollView>
+        </ScrollableTabView>
         <TouchableHighlight
           style={styles.btnLetGo}
           onPress={() => this.props.navigation.navigate('TourMapScreen')}>

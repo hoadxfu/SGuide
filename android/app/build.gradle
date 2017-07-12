@@ -143,8 +143,9 @@ dependencies {
         exclude group: 'com.google.android.gms', module: 'play-services-base'
         exclude group: 'com.google.android.gms', module: 'play-services-maps'
     }
-    compile 'com.google.android.gms:play-services-base:10.2.0'
-    compile 'com.google.android.gms:play-services-maps:10.2.0'
+    compile 'com.google.android.gms:play-services-base:+'
+    compile 'com.google.android.gms:play-services-location:+'
+    compile 'com.google.android.gms:play-services-maps:+'
 
     compile fileTree(dir: "libs", include: ["*.jar"])
     compile "com.android.support:appcompat-v7:23.0.1"

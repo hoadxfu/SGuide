@@ -8,7 +8,7 @@
 
     <uses-sdk
         android:minSdkVersion="16"
-        android:targetSdkVersion="22" />
+        android:targetSdkVersion="25" />
 
     <application
       android:name=".MainApplication"
@@ -29,7 +29,7 @@
       <activity android:name="com.facebook.react.devsupport.DevSettingsActivity" />
       <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyCmsDFWx-rGZCxB9yk8PN04Q4S_t5C7gmU" />
+            android:value="AIzaSyBjDjJXQxTiDx9nZWnlPaBaQmqa5-S5Q2g" />
     </application>
 
 </manifest>
