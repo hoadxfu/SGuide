@@ -1,5 +1,5 @@
 import React from 'react'
-import { Dimensions } from 'react-native'
+import { View, Dimensions } from 'react-native'
 import MapView from 'react-native-maps'
 import TourMapCallout from './TourMapCallout'
 import Styles from './Styles/TourMapStyles'
@@ -125,16 +125,18 @@ class TourMap extends React.Component {
 
   render () {
     return (
-      <MapView
-        style={Styles.map}
-        initialRegion={this.state.initialPosition}
-        onRegionChangeComplete={this.onRegionChange}
-        showsUserLocation={this.state.showUserLocation}
-        provider='google'
-        region={this.state.lastPosition}
-      >
-        {this.state.locations.map((location) => this.renderMapMarkers(location))}
-      </MapView>
+      <View style={Styles.container}>
+        <MapView
+          style={Styles.map}
+          initialRegion={this.state.initialPosition}
+          onRegionChangeComplete={this.onRegionChange}
+          showsUserLocation={this.state.showUserLocation}
+          provider='google'
+          region={this.state.lastPosition}
+        >
+          {this.state.locations.map((location) => this.renderMapMarkers(location))}
+        </MapView>
+      </View>
     )
   }
 }

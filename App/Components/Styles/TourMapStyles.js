@@ -10,17 +10,17 @@ export default StyleSheet.create({
   // ...ApplicationStyles.screen,
   container: {
     flex: 1,
-    justifyContent: 'flex-end',
+    // justifyContent: 'flex-end',
     alignItems: 'center'
   },
   map: {
     width: window.width,
-    height: window.height,
+    height: window.height
     // For Android :/
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0
+    // position: 'absolute',
+    // top: 0,
+    // left: 0,
+    // right: 0,
+    // bottom: 0
   }
 })
