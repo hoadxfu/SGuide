@@ -1,9 +1,13 @@
 PODS:
+  - BVLinearGradient (2.0.0):
+    - React
   - GoogleMaps (2.3.1):
     - GoogleMaps/Maps (= 2.3.1)
   - GoogleMaps/Base (2.3.1)
   - GoogleMaps/Maps (2.3.1):
     - GoogleMaps/Base
+  - React (0.46.1):
+    - React/Core (= 0.46.1)
   - React/BatchedBridge (0.46.1):
     - React/Core
     - React/cxxreact_legacy
@@ -36,6 +40,7 @@ PODS:
   - Yoga (0.46.1.React)
 
 DEPENDENCIES:
+  - BVLinearGradient (from `../node_modules/react-native-linear-gradient`)
   - GoogleMaps
   - React/BatchedBridge (from `../node_modules/react-native`)
   - React/Core (from `../node_modules/react-native`)
@@ -52,16 +57,19 @@ DEPENDENCIES:
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga/Yoga.podspec`)
 
 EXTERNAL SOURCES:
+  BVLinearGradient:
+    :path: ../node_modules/react-native-linear-gradient
   React:
     :path: ../node_modules/react-native
   Yoga:
     :path: ../node_modules/react-native/ReactCommon/yoga/Yoga.podspec
 
 SPEC CHECKSUMS:
+  BVLinearGradient: 2141b67ea06d9b1077ca68c9d6f89fa38c5f8450
   GoogleMaps: c66a71058b9b1294bcdd5463a68e357fa50c079f
   React: 0c6f45ca8c39fe48ed4e3a5583861a8e1bc0959e
   Yoga: 9148a870ff3adaba107edb8ef48ab189c9d9a3d1
 
-PODFILE CHECKSUM: 0ba2911fc8ec00bf73fc21a0863f11afabc2cff1
+PODFILE CHECKSUM: 3c339893d74db2d6e4d0b8d2fd8d1bcc462abe2b
 
 COCOAPODS: 1.2.1

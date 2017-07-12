@@ -3,12 +3,7 @@ package com.sguide;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
-import com.airbnb.android.react.lottie.LottiePackage;
-import com.airbnb.android.react.lottie.LottiePackage;
-import com.airbnb.android.react.lottie.LottiePackage;
-import com.airbnb.android.react.lottie.LottiePackage;
-import com.airbnb.android.react.lottie.LottiePackage;
-import com.airbnb.android.react.lottie.LottiePackage;
+import com.BV.LinearGradient.LinearGradientPackage;
 import com.airbnb.android.react.maps.MapsPackage;
 import com.learnium.RNDeviceInfo.RNDeviceInfo;
 import com.lugg.ReactNativeConfig.ReactNativeConfigPackage;
@@ -34,12 +29,7 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
-            new LottiePackage(),
-            new LottiePackage(),
-            new LottiePackage(),
-            new LottiePackage(),
-            new LottiePackage(),
-            new LottiePackage(),
+            new LinearGradientPackage(),
             new MapsPackage(),
             new RNDeviceInfo(),
             new ReactNativeConfigPackage(),

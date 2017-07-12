@@ -1,5 +1,5 @@
 import React from 'react'
-import { Animated, View, Text as TextRA } from 'react-native'
+import { View, Text as TextRA } from 'react-native'
 import {
   Item,
   Input,
@@ -16,82 +16,77 @@ import styles from './Styles/TabTourReviewStyle'
 export default class TabTourReview extends React.Component {
   render () {
     return (
-      <Animated.ScrollView
-        style={[styles.container, this.props.style]}
-        scrollEventThrottle={16}
-        onScroll={this.props.onScroll}>
-        <View style={styles.content}>
-          <TextRA style={styles.title}>Please give a review!</TextRA>
-          <View style={styles.stars}>
-            <Icon name='ios-star' style={styles.star} />
-            <Icon name='ios-star' style={styles.star} />
-            <Icon name='ios-star' style={styles.star} />
-            <Icon name='ios-star-outline' style={styles.star} />
-            <Icon name='ios-star-outline' style={styles.star} />
-          </View>
-          <Item underline>
-            <Input placeholder='Name' />
-          </Item>
-          <Item underline>
-            <Input placeholder='Your comment' />
-          </Item>
-          <Button block>
-            <Text>Send</Text>
-          </Button>
-          <TextRA style={styles.commentTitle}>Comment List</TextRA>
-          <List>
-            <ListItem>
-              <Thumbnail square size={80} source={require('../Images/launch-icon.png')} />
-              <Body>
-                <Text>Sankhadeep</Text>
-                <Text note>Its time to build a difference . .</Text>
-              </Body>
-            </ListItem>
-            <ListItem>
-              <Thumbnail square size={80} source={require('../Images/launch-icon.png')} />
-              <Body>
-                <Text>Sankhadeep</Text>
-                <Text note>Its time to build a difference . .</Text>
-              </Body>
-            </ListItem>
-            <ListItem>
-              <Thumbnail square size={80} source={require('../Images/launch-icon.png')} />
-              <Body>
-                <Text>Sankhadeep</Text>
-                <Text note>Its time to build a difference . .</Text>
-              </Body>
-            </ListItem>
-            <ListItem>
-              <Thumbnail square size={80} source={require('../Images/launch-icon.png')} />
-              <Body>
-                <Text>Sankhadeep</Text>
-                <Text note>Its time to build a difference . .</Text>
-              </Body>
-            </ListItem>
-            <ListItem>
-              <Thumbnail square size={80} source={require('../Images/launch-icon.png')} />
-              <Body>
-                <Text>Sankhadeep</Text>
-                <Text note>Its time to build a difference . .</Text>
-              </Body>
-            </ListItem>
-            <ListItem>
-              <Thumbnail square size={80} source={require('../Images/launch-icon.png')} />
-              <Body>
-                <Text>Sankhadeep</Text>
-                <Text note>Its time to build a difference . .</Text>
-              </Body>
-            </ListItem>
-            <ListItem>
-              <Thumbnail square size={80} source={require('../Images/launch-icon.png')} />
-              <Body>
-                <Text>Sankhadeep</Text>
-                <Text note>Its time to build a difference . .</Text>
-              </Body>
-            </ListItem>
-          </List>
+      <View style={styles.content}>
+        <TextRA style={styles.title}>Please give a review!</TextRA>
+        <View style={styles.stars}>
+          <Icon name='ios-star' style={styles.star} />
+          <Icon name='ios-star' style={styles.star} />
+          <Icon name='ios-star' style={styles.star} />
+          <Icon name='ios-star-outline' style={styles.star} />
+          <Icon name='ios-star-outline' style={styles.star} />
         </View>
-      </Animated.ScrollView>
+        <Item underline>
+          <Input placeholder='Name' />
+        </Item>
+        <Item underline>
+          <Input placeholder='Your comment' />
+        </Item>
+        <Button block>
+          <Text>Send</Text>
+        </Button>
+        <TextRA style={styles.commentTitle}>Comment List</TextRA>
+        <List>
+          <ListItem>
+            <Thumbnail square size={80} source={require('../Images/launch-icon.png')} />
+            <Body>
+              <Text>Sankhadeep</Text>
+              <Text note>Its time to build a difference . .</Text>
+            </Body>
+          </ListItem>
+          <ListItem>
+            <Thumbnail square size={80} source={require('../Images/launch-icon.png')} />
+            <Body>
+              <Text>Sankhadeep</Text>
+              <Text note>Its time to build a difference . .</Text>
+            </Body>
+          </ListItem>
+          <ListItem>
+            <Thumbnail square size={80} source={require('../Images/launch-icon.png')} />
+            <Body>
+              <Text>Sankhadeep</Text>
+              <Text note>Its time to build a difference . .</Text>
+            </Body>
+          </ListItem>
+          <ListItem>
+            <Thumbnail square size={80} source={require('../Images/launch-icon.png')} />
+            <Body>
+              <Text>Sankhadeep</Text>
+              <Text note>Its time to build a difference . .</Text>
+            </Body>
+          </ListItem>
+          <ListItem>
+            <Thumbnail square size={80} source={require('../Images/launch-icon.png')} />
+            <Body>
+              <Text>Sankhadeep</Text>
+              <Text note>Its time to build a difference . .</Text>
+            </Body>
+          </ListItem>
+          <ListItem>
+            <Thumbnail square size={80} source={require('../Images/launch-icon.png')} />
+            <Body>
+              <Text>Sankhadeep</Text>
+              <Text note>Its time to build a difference . .</Text>
+            </Body>
+          </ListItem>
+          <ListItem>
+            <Thumbnail square size={80} source={require('../Images/launch-icon.png')} />
+            <Body>
+              <Text>Sankhadeep</Text>
+              <Text note>Its time to build a difference . .</Text>
+            </Body>
+          </ListItem>
+        </List>
+      </View>
     )
   }
 }

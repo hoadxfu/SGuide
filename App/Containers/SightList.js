@@ -80,7 +80,6 @@ class SightList extends React.Component {
               starColor='white'
               emptyStarColor='white'
               starSize={15}
-
             />
           </View>
         </LinearGradient>

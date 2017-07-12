@@ -18,7 +18,8 @@ export default StyleSheet.create({
     fontSize: 20,
     alignSelf: 'flex-start',
     color: Colors.snow,
-    textAlign: 'left'
+    textAlign: 'left',
+    backgroundColor: 'transparent'
     // ,
     // marginBottom: Metrics.baseMargin,
     // marginLeft: Metrics.baseMargin
