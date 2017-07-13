@@ -1,7 +1,7 @@
 import React from 'react'
 import { Animated, View } from 'react-native'
 import { TourListItem } from '../Components'
-import Animation from 'lottie-react-native'
+// import Animation from 'lottie-react-native'
 import { connect } from 'react-redux'
 
 // Component from native base
@@ -40,7 +40,7 @@ class MainScreen extends React.Component {
     fetch('http://fihatech.com.vn/webservice/api/tours')
       .then(response => response.json())
       .then((responseJSON) => {
-        this.animation.reset()
+        // this.animation.reset()
         this.setState({
           isLoading: 0,
           tours: responseJSON
@@ -50,7 +50,7 @@ class MainScreen extends React.Component {
   }
 
   componentDidMount () {
-    this.animation.play()
+    // this.animation.play()
   }
 
   renderTours () {
@@ -78,7 +78,7 @@ class MainScreen extends React.Component {
               </Button>
             </Right>
           </Header>
-          <Animated.View style={[
+          {/* <Animated.View style={[
             styles.loading,
             {
               opacity: this.state.isLoading
@@ -94,7 +94,7 @@ class MainScreen extends React.Component {
               source={require('../Themes/loading.json')}
               progress={this.state.progress}
             />
-          </Animated.View>
+          </Animated.View> */}
           <Content>
             <View style={styles.navButtonGroup}>
               <View style={styles.navButton}>
