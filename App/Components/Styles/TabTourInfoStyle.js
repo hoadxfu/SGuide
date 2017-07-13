@@ -6,7 +6,7 @@ export default StyleSheet.create({
     flex: 1
   },
   content: {
-    marginTop: Metrics.navBarMaxHeight + Metrics.tabBarHeight,
+    marginTop: Metrics.navBarMaxHeight,
     padding: 10
   },
   contentText: {

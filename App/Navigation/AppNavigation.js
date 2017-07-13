@@ -1,5 +1,5 @@
 import { DrawerNavigator } from 'react-navigation'
-// import DummyScreen from '../Containers/DummyScreen'
+import MainScreen from '../Containers/MainScreen'
 import LaunchScreen from '../Containers/LaunchScreen'
 import TourMapScreen from '../Containers/TourMapScreen'
 import TourDetailScreen from '../Containers/TourDetailScreen'
@@ -13,6 +13,7 @@ import styles from './Styles/NavigationStyles'
 
 // Manifest of possible screens
 const PrimaryNav = DrawerNavigator({
+  MainScreen: { screen: MainScreen },
   LaunchScreen: { screen: LaunchScreen },
   TourMapScreen: { screen: TourMapScreen },
   TourDetailScreen: { screen: TourDetailScreen },
@@ -21,7 +22,7 @@ const PrimaryNav = DrawerNavigator({
 }, {
   // Default config for all screens
   headerMode: 'none',
-  initialRouteName: 'TourDetailScreen',
+  initialRouteName: 'MainScreen',
   navigationOptions: {
     headerStyle: styles.header
   }

@@ -3,14 +3,11 @@ import { View, Animated, TouchableHighlight } from 'react-native'
 import { connect } from 'react-redux'
 
 // Custom Component
-import ScrollableTabView from 'react-native-scrollable-tab-view'
 import Icon from 'react-native-vector-icons/Ionicons'
 import {
   AnimatedNavigationBar,
   NavButton,
-  CustomTabBar,
-  TabTourInfo,
-  TabTourReview
+  TabTourInfo
 } from '../Components'
 
 // Add Actions - replace 'Your' with whatever your reducer is called :)
@@ -20,7 +17,7 @@ import {
 import styles from './Styles/TourDetailScreenStyle'
 import { Colors, Metrics } from '../Themes'
 
-const HEADER_SCROLL_DISTANCE = Metrics.navBarMaxHeight - Metrics.navBarHeight
+// const HEADER_SCROLL_DISTANCE = Metrics.navBarMaxHeight - Metrics.navBarHeight
 
 class TourDetailScreen extends React.Component {
   constructor (props) {
@@ -30,19 +27,12 @@ class TourDetailScreen extends React.Component {
     }
   }
 
-  handleTabChange () {
-    // this.refs.infoRef._component.scrollTo({x: 0, y: 0, animated: false})
-    // this.refs.reviewRef._component.scrollTo({x: 0, y: 0, animated: false})
-  }
+  // handleTabChange () {
+  //   this.refs.infoRef._component.scrollTo({x: 0, y: 0, animated: true})
+  //   this.refs.reviewRef._component.scrollTo({x: 0, y: 0, animated: true})
+  // }
 
   render () {
-    // header scroll distance for animation
-    const headerTranslate = this.state.scrollY.interpolate({
-      inputRange: [0, HEADER_SCROLL_DISTANCE],
-      outputRange: [0, -HEADER_SCROLL_DISTANCE],
-      extrapolate: 'clamp'
-    })
-
     return (
       <View style={styles.container}>
         <AnimatedNavigationBar
@@ -53,38 +43,14 @@ class TourDetailScreen extends React.Component {
           leftButton={<NavButton icon='ios-arrow-back-outline' onPress={() => this.props.navigation.goBack()} />}
           rightButton={<NavButton icon='ios-download-outline' />}
         />
-        <ScrollableTabView renderTabBar={
-          () => <CustomTabBar
-            style={{position: 'absolute', top: Metrics.navBarMaxHeight}}
-            backgroundColor={Colors.secondary}
-            underlineStyle={{backgroundColor: Colors.snow}}
-            textStyle={{color: Colors.snow}}
-            onTabChange={this.handleTabChange.bind(this)}
-            animatedStyle={{
-              transform: [{translateY: headerTranslate}]
-            }} />
-          }>
-          <Animated.ScrollView
-            // ref='infoRef'
-            tabLabel='Info'
-            scrollEventThrottle={16}
-            onScroll={Animated.event(
-              [{nativeEvent: {contentOffset: {y: this.state.scrollY}}}],
-              {useNativeDriver: true}
-            )}>
-            <TabTourInfo />
-          </Animated.ScrollView>
-          <Animated.ScrollView
-            // ref='reviewRef'
-            tabLabel='Review'
-            scrollEventThrottle={16}
-            onScroll={Animated.event(
-              [{nativeEvent: {contentOffset: {y: this.state.scrollY}}}],
-              {useNativeDriver: true}
-            )}>
-            <TabTourReview />
-          </Animated.ScrollView>
-        </ScrollableTabView>
+        <Animated.ScrollView
+          scrollEventThrottle={16}
+          onScroll={Animated.event(
+            [{nativeEvent: {contentOffset: {y: this.state.scrollY}}}],
+            {useNativeDriver: true}
+          )}>
+          <TabTourInfo />
+        </Animated.ScrollView>
         <TouchableHighlight
           style={styles.btnLetGo}
           onPress={() => this.props.navigation.navigate('TourMapScreen')}>

@@ -5,7 +5,6 @@ const window = Dimensions.get('window')
 
 export default StyleSheet.create({
   container: {
-    height: 0,
     zIndex: 1000
   },
   header: {
@@ -40,7 +39,8 @@ export default StyleSheet.create({
     position: 'absolute',
     top: 0,
     left: 0,
-    right: 0
+    right: 0,
+    height: Metrics.navBarMaxHeight
   },
   image: {
     width: null,

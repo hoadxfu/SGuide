@@ -10,11 +10,15 @@ import TabTourReview from './TabTourReview'
 // map
 import TourMap from './TourMap'
 
+// tour list
+import TourListItem from './TourListItem'
+
 export {
   AnimatedNavigationBar,
   NavButton,
   CustomTabBar,
   TabTourInfo,
   TabTourReview,
-  TourMap
+  TourMap,
+  TourListItem
 }
