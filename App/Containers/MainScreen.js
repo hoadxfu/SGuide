@@ -1,6 +1,6 @@
 import React from 'react'
-import { Animated, View } from 'react-native'
-import { TourListItem } from '../Components'
+import { View } from 'react-native'
+import { TourList } from '../Components'
 // import Animation from 'lottie-react-native'
 import { connect } from 'react-redux'
 
@@ -20,41 +20,18 @@ import {
 import getTheme from '../../native-base-theme/components'
 import sguide from '../../native-base-theme/variables/sguide'
 // Add Actions - replace 'Your' with whatever your reducer is called :)
-// import YourActions from '../Redux/YourRedux'
+import TourListActions from '../Redux/TourListRedux'
 
 // Styles
 import styles from './Styles/MainScreenStyle'
 
 class MainScreen extends React.Component {
-  constructor (props) {
-    super(props)
-    // init dataSource
-    this.state = {
-      progress: new Animated.Value(0),
-      isLoading: 1,
-      tours: []
-    }
-  }
+  // constructor (props) {
+  //   super(props)
+  // }
 
   componentWillMount () {
-    fetch('http://fihatech.com.vn/webservice/api/tours')
-      .then(response => response.json())
-      .then((responseJSON) => {
-        // this.animation.reset()
-        this.setState({
-          isLoading: 0,
-          tours: responseJSON
-        })
-      })
-      .catch(error => console.log(error))
-  }
-
-  componentDidMount () {
-    // this.animation.play()
-  }
-
-  renderTours () {
-    return this.state.tours.map(tour => <TourListItem key={tour.tour_id} tour={tour} />)
+    this.props.fetchTourList()
   }
 
   render () {
@@ -78,23 +55,6 @@ class MainScreen extends React.Component {
               </Button>
             </Right>
           </Header>
-          {/* <Animated.View style={[
-            styles.loading,
-            {
-              opacity: this.state.isLoading
-            }
-          ]}>
-            <Animation
-              ref={animation => { this.animation = animation }}
-              loop
-              style={{
-                width: 100,
-                height: 100
-              }}
-              source={require('../Themes/loading.json')}
-              progress={this.state.progress}
-            />
-          </Animated.View> */}
           <Content>
             <View style={styles.navButtonGroup}>
               <View style={styles.navButton}>
@@ -118,7 +78,7 @@ class MainScreen extends React.Component {
                 </Button>
               </View>
             </View>
-            {this.renderTours()}
+            {this.props.tourList && <TourList dataSource={this.props.tourList} />}
           </Content>
         </Container>
       </StyleProvider>
@@ -127,13 +87,14 @@ class MainScreen extends React.Component {
 }
 
 const mapStateToProps = (state) => {
+  const { tourList } = state.tourList
   return {
+    tourList
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-  }
-}
+const mapDispatchToProps = (dispatch) => ({
+  fetchTourList: () => dispatch(TourListActions.tourListRequest())
+})
 
 export default connect(mapStateToProps, mapDispatchToProps)(MainScreen)

@@ -11,7 +11,7 @@ import TabTourReview from './TabTourReview'
 import TourMap from './TourMap'
 
 // tour list
-import TourListItem from './TourListItem'
+import TourList from './TourList'
 
 export {
   AnimatedNavigationBar,
@@ -20,5 +20,5 @@ export {
   TabTourInfo,
   TabTourReview,
   TourMap,
-  TourListItem
+  TourList
 }

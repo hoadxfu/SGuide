@@ -5,7 +5,7 @@ import StarRating from 'react-native-star-rating'
 
 import styles from './Styles/TourListItemStyle'
 
-export default class TourListItem extends React.Component {
+export default class TourListRow extends React.Component {
   render () {
     const { tour } = this.props
     return (
@@ -30,7 +30,7 @@ export default class TourListItem extends React.Component {
         </View>
         <Image
           style={styles.image}
-          source={require('../Images/Icons/68595214-travelling-wallpapers.jpg')}
+          source={{uri: 'https://unsplash.it/300/200/?random'}}
           resizeMode='stretch'
         />
       </View>
