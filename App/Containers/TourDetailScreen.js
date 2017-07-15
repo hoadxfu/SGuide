@@ -11,7 +11,7 @@ import {
 } from '../Components'
 
 // Add Actions - replace 'Your' with whatever your reducer is called :)
-// import YourActions from '../Redux/YourRedux'
+import TourActions from '../Redux/TourRedux'
 
 // Styles
 import styles from './Styles/TourDetailScreenStyle'
@@ -25,6 +25,10 @@ class TourDetailScreen extends React.Component {
     this.state = {
       scrollY: new Animated.Value(0)
     }
+  }
+
+  componentWillMount () {
+    this.props.fetchTour()
   }
 
   // handleTabChange () {
@@ -66,13 +70,14 @@ class TourDetailScreen extends React.Component {
 }
 
 const mapStateToProps = (state) => {
+  const { tour } = state.tour
   return {
+    tour
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-  }
-}
+const mapDispatchToProps = (dispatch) => ({
+  fetchTour: () => dispatch(TourActions.tourRequest(1))
+})
 
 export default connect(mapStateToProps, mapDispatchToProps)(TourDetailScreen)

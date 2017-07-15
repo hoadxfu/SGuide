@@ -40,7 +40,9 @@ export default class TourList extends React.Component {
   *************************************************************/
   renderRow (rowData) {
     return (
-      <TourListRow tour={rowData} />
+      <TourListRow
+        navigation={this.props.navigation}
+        tour={rowData} />
     )
   }
 
@@ -80,7 +82,7 @@ export default class TourList extends React.Component {
       <View style={styles.container}>
         <ListView
           dataSource={this.state.dataSource}
-          renderRow={this.renderRow}
+          renderRow={this.renderRow.bind(this)}
           enableEmptySections
         />
       </View>

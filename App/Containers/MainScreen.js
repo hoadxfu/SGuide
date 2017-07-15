@@ -78,7 +78,7 @@ class MainScreen extends React.Component {
                 </Button>
               </View>
             </View>
-            {this.props.tourList && <TourList dataSource={this.props.tourList} />}
+            {this.props.tourList && <TourList navigation={this.props.navigation} dataSource={this.props.tourList} />}
           </Content>
         </Container>
       </StyleProvider>

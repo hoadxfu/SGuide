@@ -11,12 +11,14 @@ import SGuideAPI from '../Services/SGuideAPI'
 import { StartupTypes } from '../Redux/StartupRedux'
 import { GithubTypes } from '../Redux/GithubRedux'
 import { TourListTypes } from '../Redux/TourListRedux'
+import { TourTypes } from '../Redux/TourRedux'
 
 /* ------------- Sagas ------------- */
 
 import { startup } from './StartupSagas'
 import { getUserAvatar } from './GithubSagas'
 import { getTourList } from './TourListSagas'
+import { getTour } from './TourSagas'
 
 /* ------------- API ------------- */
 
@@ -36,6 +38,9 @@ export default function * root () {
     takeLatest(GithubTypes.USER_REQUEST, getUserAvatar, api),
 
     // get tour list from api
-    takeEvery(TourListTypes.TOUR_LIST_REQUEST, getTourList, sguideapi)
+    takeEvery(TourListTypes.TOUR_LIST_REQUEST, getTourList, sguideapi),
+
+    // get tour
+    takeLatest(TourTypes.TOUR_REQUEST, getTour, sguideapi)
   ]
 }

@@ -9,7 +9,8 @@ export default () => {
     github: require('./GithubRedux').reducer,
     search: require('./SearchRedux').reducer,
     places: require('./PlacesRedux').reducer,
-    tourList: require('./TourListRedux').reducer
+    tourList: require('./TourListRedux').reducer,
+    tour: require('./TourRedux').reducer
   })
 
   return configureStore(rootReducer, rootSaga)
