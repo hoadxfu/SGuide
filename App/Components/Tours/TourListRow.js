@@ -3,13 +3,13 @@ import { Image, View, Text, TouchableOpacity } from 'react-native'
 // import LinearGradient from 'react-native-linear-gradient'
 import StarRating from 'react-native-star-rating'
 
-import styles from './Styles/TourListItemStyle'
+import styles from './Styles/TourListRowStyle'
 
 export default class TourListRow extends React.Component {
   render () {
     const { tour, navigation } = this.props
     return (
-      <TouchableOpacity onPress={() => navigation.navigate('TourDetailScreen')}>
+      <TouchableOpacity onPress={() => navigation.navigate('TourDetailScreen', {tourId: tour.tour_id})}>
         <View style={styles.container}>
           <View style={styles.info}>
             <Text

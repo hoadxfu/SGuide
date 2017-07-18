@@ -1,6 +1,11 @@
 import React from 'react'
 import { View } from 'react-native'
-import { TourList } from '../Components'
+// custom component
+import {
+  CustomListView,
+  NavigationBar,
+  TourListRow
+} from '../Components'
 // import Animation from 'lottie-react-native'
 import { connect } from 'react-redux'
 
@@ -9,11 +14,6 @@ import {
   StyleProvider,
   Container,
   Content,
-  Header,
-  Left,
-  Body,
-  Title,
-  Right,
   Button,
   Icon
 } from 'native-base'
@@ -38,23 +38,21 @@ class MainScreen extends React.Component {
     return (
       <StyleProvider style={getTheme(sguide)}>
         <Container>
-          <Header>
-            <Left>
+          <NavigationBar
+            buttonLeft={
               <Button
                 transparent
                 onPress={() => this.props.navigation.navigate('DrawerOpen')}>
                 <Icon name='ios-menu-outline' />
               </Button>
-            </Left>
-            <Body>
-              <Title>SGuide</Title>
-            </Body>
-            <Right>
+            }
+            buttonRight={
               <Button transparent>
                 <Icon name='ios-search-outline' />
               </Button>
-            </Right>
-          </Header>
+            }
+            title='SGuide'
+          />
           <Content>
             <View style={styles.navButtonGroup}>
               <View style={styles.navButton}>
@@ -78,7 +76,14 @@ class MainScreen extends React.Component {
                 </Button>
               </View>
             </View>
-            {this.props.tourList && <TourList navigation={this.props.navigation} dataSource={this.props.tourList} />}
+            {
+              this.props.tourList && <CustomListView
+                renderRow={(rowData) =>
+                  <TourListRow
+                    navigation={this.props.navigation} tour={rowData} />
+                }
+                dataSource={this.props.tourList} />
+            }
           </Content>
         </Container>
       </StyleProvider>

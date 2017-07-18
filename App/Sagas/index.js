@@ -11,6 +11,7 @@ import SGuideAPI from '../Services/SGuideAPI'
 import { StartupTypes } from '../Redux/StartupRedux'
 import { GithubTypes } from '../Redux/GithubRedux'
 import { TourListTypes } from '../Redux/TourListRedux'
+import { PlaceListTypes } from '../Redux/PlaceListRedux'
 import { TourTypes } from '../Redux/TourRedux'
 
 /* ------------- Sagas ------------- */
@@ -18,6 +19,7 @@ import { TourTypes } from '../Redux/TourRedux'
 import { startup } from './StartupSagas'
 import { getUserAvatar } from './GithubSagas'
 import { getTourList } from './TourListSagas'
+import { getPlaceList } from './PlaceListSagas'
 import { getTour } from './TourSagas'
 
 /* ------------- API ------------- */
@@ -39,6 +41,9 @@ export default function * root () {
 
     // get tour list from api
     takeEvery(TourListTypes.TOUR_LIST_REQUEST, getTourList, sguideapi),
+
+    // get tour list from api
+    takeEvery(PlaceListTypes.PLACE_LIST_REQUEST, getPlaceList, sguideapi),
 
     // get tour
     takeLatest(TourTypes.TOUR_REQUEST, getTour, sguideapi)

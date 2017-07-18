@@ -10,6 +10,7 @@ export default () => {
     search: require('./SearchRedux').reducer,
     places: require('./PlacesRedux').reducer,
     tourList: require('./TourListRedux').reducer,
+    placeList: require('./PlaceListRedux').reducer,
     tour: require('./TourRedux').reducer
   })
 

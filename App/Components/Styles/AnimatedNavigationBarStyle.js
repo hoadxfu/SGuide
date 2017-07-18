@@ -5,7 +5,6 @@ const window = Dimensions.get('window')
 
 export default StyleSheet.create({
   container: {
-    zIndex: 1000
   },
   header: {
     position: 'absolute',
@@ -13,7 +12,9 @@ export default StyleSheet.create({
     left: 0,
     right: 0,
     overflow: 'hidden',
-    height: Metrics.navBarMaxHeight
+    height: Metrics.navBarMaxHeight,
+    backgroundColor: Colors.primary,
+    zIndex: 1000
   },
   navBar: {
     position: 'absolute',
@@ -23,10 +24,10 @@ export default StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     paddingTop: Metrics.navBarMarginTop,
-    height: Metrics.navBarHeight,
-    backgroundColor: Colors.primary
+    height: Metrics.navBarHeight
   },
   bar: {
+    flex: 4,
     backgroundColor: Colors.transparent,
     marginTop: 5
   },
@@ -43,6 +44,10 @@ export default StyleSheet.create({
     height: Metrics.navBarMaxHeight
   },
   image: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
     width: null,
     height: Metrics.navBarMaxHeight,
     resizeMode: 'cover'
@@ -68,10 +73,18 @@ export default StyleSheet.create({
   imageTitle: {
     fontSize: Fonts.size.h4,
     color: '#fff',
-    marginBottom: 3
+    marginBottom: 8
   },
-  imageSubtitle: {
-    color: '#fff'
+  subtitle: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between'
+  },
+  subLeft: {
+    alignSelf: 'flex-start'
+  },
+  subRight: {
+    alignSelf: 'flex-end'
   },
   leftButton: {
     flex: 1,

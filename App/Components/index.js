@@ -1,24 +1,34 @@
+// custom components
+import CustomListView from './CustomListView'
+import CustomTabBar from './CustomTabBar'
+
 // navigation bar
 import AnimatedNavigationBar from './AnimatedNavigationBar'
+import NavigationBar from './NavigationBar'
 import NavButton from './NavButton'
-
-// tab bar
-import CustomTabBar from './CustomTabBar'
-import TabTourInfo from './TabTourInfo'
-import TabTourReview from './TabTourReview'
 
 // map
 import TourMap from './TourMap'
 
-// tour list
-import TourList from './TourList'
+// tour component
+import TourListRow from './Tours/TourListRow'
+import TourReview from './Tours/TourReview'
+import TourDescription from './Tours/TourDescription'
+import TourImageFeature from './Tours/TourImageFeature'
+
+// place
+import PlaceListRow from './PlaceListRow'
 
 export {
   AnimatedNavigationBar,
+  NavigationBar,
   NavButton,
   CustomTabBar,
-  TabTourInfo,
-  TabTourReview,
+  TourDescription,
+  TourImageFeature,
+  TourReview,
   TourMap,
-  TourList
+  TourListRow,
+  CustomListView,
+  PlaceListRow
 }

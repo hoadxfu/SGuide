@@ -2,6 +2,10 @@
 # yarn lockfile v1
 
 
+"@expo/react-native-read-more-text@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@expo/react-native-read-more-text/-/react-native-read-more-text-1.1.0.tgz#0cb0006fb1c6b771c8c47bc88fd34300cd40e3f1"
+
 "@shoutem/animation@^0.8.9":
   version "0.8.10"
   resolved "https://registry.yarnpkg.com/@shoutem/animation/-/animation-0.8.10.tgz#2246709c88ab8c39c3e7ab7f4c212268fb63e52e"

@@ -1,9 +1,8 @@
 import React from 'react'
 import { View, Text, ListView } from 'react-native'
-import TourListRow from './TourListRow'
-import styles from './Styles/TourListViewStyle'
+import styles from './Styles/CustomListViewStyle'
 
-export default class TourList extends React.Component {
+export default class CustomListView extends React.Component {
   constructor (props) {
     super(props)
     /* ***********************************************************
@@ -39,11 +38,6 @@ export default class TourList extends React.Component {
     return <MyCustomCell title={rowData.title} description={rowData.description} />
   *************************************************************/
   renderRow (rowData) {
-    return (
-      <TourListRow
-        navigation={this.props.navigation}
-        tour={rowData} />
-    )
   }
 
   /* ***********************************************************
@@ -82,7 +76,7 @@ export default class TourList extends React.Component {
       <View style={styles.container}>
         <ListView
           dataSource={this.state.dataSource}
-          renderRow={this.renderRow.bind(this)}
+          renderRow={this.props.renderRow}
           enableEmptySections
         />
       </View>
