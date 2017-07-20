@@ -34,27 +34,32 @@ class MainScreen extends React.Component {
     this.props.fetchTourList()
   }
 
+  renderHeader () {
+    return (
+      <Header>
+        <Left>
+          <Button
+            transparent
+            onPress={() => this.props.navigation.navigate('DrawerOpen')}>
+            <Icon name='ios-menu-outline' />
+          </Button>
+        </Left>
+        <Body>
+          <Title>SGuide</Title>
+        </Body>
+        <Right>
+          <Button transparent>
+            <Icon name='ios-search-outline' />
+          </Button>
+        </Right>
+      </Header>
+    )
+  }
   render () {
     return (
       <StyleProvider style={getTheme(sguide)}>
         <Container>
-          <Header>
-            <Left>
-              <Button
-                transparent
-                onPress={() => this.props.navigation.navigate('DrawerOpen')}>
-                <Icon name='ios-menu-outline' />
-              </Button>
-            </Left>
-            <Body>
-              <Title>SGuide</Title>
-            </Body>
-            <Right>
-              <Button transparent>
-                <Icon name='ios-search-outline' />
-              </Button>
-            </Right>
-          </Header>
+          {this.renderHeader()}
           <Content>
             <View style={styles.navButtonGroup}>
               <View style={styles.navButton}>
@@ -95,6 +100,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => ({
   fetchTourList: () => dispatch(TourListActions.tourListRequest())
+
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(MainScreen)

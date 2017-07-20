@@ -12,6 +12,7 @@ import { StartupTypes } from '../Redux/StartupRedux'
 import { GithubTypes } from '../Redux/GithubRedux'
 import { TourListTypes } from '../Redux/TourListRedux'
 import { TourTypes } from '../Redux/TourRedux'
+import { PlacesTypes } from '../Redux/PlacesRedux'
 
 /* ------------- Sagas ------------- */
 
@@ -19,6 +20,7 @@ import { startup } from './StartupSagas'
 import { getUserAvatar } from './GithubSagas'
 import { getTourList } from './TourListSagas'
 import { getTour } from './TourSagas'
+import { getAllPlaces, getPlacesByTour } from './PlacesSagas'
 
 /* ------------- API ------------- */
 
@@ -41,6 +43,12 @@ export default function * root () {
     takeEvery(TourListTypes.TOUR_LIST_REQUEST, getTourList, sguideapi),
 
     // get tour
-    takeLatest(TourTypes.TOUR_REQUEST, getTour, sguideapi)
+    takeLatest(TourTypes.TOUR_REQUEST, getTour, sguideapi),
+
+    // get All Places
+    takeLatest(PlacesTypes.PLACES_REQUEST, getAllPlaces, sguideapi),
+
+    // get Places by tour id
+    takeLatest(PlacesTypes.PLACES_BY_TOUR_REQUEST, getPlacesByTour, sguideapi)
   ]
 }

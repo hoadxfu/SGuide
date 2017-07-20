@@ -1,4 +1,4 @@
-import {Dimensions, Platform} from 'react-native'
+import { Dimensions, Platform } from 'react-native'
 
 const { width, height } = Dimensions.get('window')
 
@@ -15,7 +15,9 @@ const metrics = {
   searchBarHeight: 30,
   screenWidth: width < height ? width : height,
   screenHeight: width < height ? height : width,
-  navBarHeight: (Platform.OS === 'ios') ? 64 : 54,
+  // navBarHeight: (Platform.OS === 'ios') ? 64 : 54,
+  navBarHeight: 54,
+
   navBarMaxHeight: 240,
   navBarMarginTop: (Platform.OS === 'ios') ? 25 : 15,
   tabBarHeight: 40,
@@ -37,7 +39,8 @@ const metrics = {
     width: 24,
     height: 24
   },
-  iconDrawerSize: 24
+  iconDrawerSize: 24,
+  statusBar: 25
 }
 
 export default metrics

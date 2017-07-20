@@ -37,6 +37,9 @@ class TourDetailScreen extends React.Component {
   // }
 
   render () {
+    // const { params } = this.props.navigation.state
+
+    // const { tour_id: id } = params.tour
     return (
       <View style={styles.container}>
         <AnimatedNavigationBar
@@ -50,8 +53,8 @@ class TourDetailScreen extends React.Component {
         <Animated.ScrollView
           scrollEventThrottle={16}
           onScroll={Animated.event(
-            [{nativeEvent: {contentOffset: {y: this.state.scrollY}}}],
-            {useNativeDriver: true}
+            [{ nativeEvent: { contentOffset: { y: this.state.scrollY } } }],
+            { useNativeDriver: true }
           )}>
           <TabTourInfo />
         </Animated.ScrollView>
@@ -77,6 +80,7 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = (dispatch) => ({
+  // todo debugging
   fetchTour: () => dispatch(TourActions.tourRequest(1))
 })
 

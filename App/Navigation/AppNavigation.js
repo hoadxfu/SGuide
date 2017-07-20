@@ -1,4 +1,6 @@
 import { DrawerNavigator } from 'react-navigation'
+import BottomPlaceList from '../Containers/BottomPlaceList'
+import MainMapScreen from '../Containers/MainMapScreen'
 import MainScreen from '../Containers/MainScreen'
 import LaunchScreen from '../Containers/LaunchScreen'
 import TourMapScreen from '../Containers/TourMapScreen'
@@ -13,6 +15,8 @@ import styles from './Styles/NavigationStyles'
 
 // Manifest of possible screens
 const PrimaryNav = DrawerNavigator({
+  BottomPlaceList: { screen: BottomPlaceList },
+  MainMapScreen: { screen: MainMapScreen },
   MainScreen: { screen: MainScreen },
   LaunchScreen: { screen: LaunchScreen },
   TourMapScreen: { screen: TourMapScreen },

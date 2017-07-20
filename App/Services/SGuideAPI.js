@@ -34,8 +34,11 @@ const create = (baseURL = 'http://fihatech.com.vn/webservice/api/') => {
   // Since we can't hide from that, we embrace it by getting out of the
   // way at this level.
   //
+
   const getTourList = () => api.get('tours')
   const getTour = (tourId) => api.get('tours/' + tourId)
+  const getAllPlaces = () => api.get('places')
+  const getPlacesByTour = (tourId) => api.get('tours_places/' + tourId)
 
   // ------
   // STEP 3
@@ -52,7 +55,9 @@ const create = (baseURL = 'http://fihatech.com.vn/webservice/api/') => {
   return {
     // a list of the API functions from step 2
     getTourList,
-    getTour
+    getTour,
+    getAllPlaces,
+    getPlacesByTour
   }
 }
 

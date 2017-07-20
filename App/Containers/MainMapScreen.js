@@ -12,20 +12,20 @@ import {
   Button,
   Icon
 } from 'native-base'
-import getTheme from '../../native-base-theme/components'
-import sguide from '../../native-base-theme/variables/sguide'
 
+import BottomPlaceList from './BottomPlaceList'
 // Add Actions - replace 'Your' with whatever your reducer is called :)
 import PlacesActions from '../Redux/PlacesRedux'
 
+// themes
+import getTheme from '../../native-base-theme/components'
+import sguide from '../../native-base-theme/variables/sguide'
 // Styles
-import styles from './Styles/TourMapScreenStyle'
+import styles from './Styles/MainMapScreenStyle'
 
-class TourMapScreen extends React.Component {
+class MainMapScreen extends React.Component {
   componentWillMount () {
-    const { id } = this.props.navigation.state
-    // default = 1
-    this.props.fetchTourById(id)
+    this.props.fetchPlaces()
   }
 
   renderHeader () {
@@ -63,13 +63,13 @@ class TourMapScreen extends React.Component {
       console.log(this.props.places)
 
       return (
-        <TourMap enableLines locations={this.props.places} />
+        <TourMap locations={this.props.places} />
       )
     }
   }
-
   render () {
-    console.log('rendering TOURmapscreen')
+    console.log('renderring mainmapscreen')
+
     // const locations = [
     //   {
     //     title: 'Location A',
@@ -103,15 +103,22 @@ class TourMapScreen extends React.Component {
     //   }
     // ]
     return (
-      <StyleProvider style={getTheme(sguide)}>
-        < View style={styles.container} >
-          {this.renderMap()}
-          <View style={styles.headerWraper}>
-            {this.renderHeader()}
-          </View>
-        </View >
 
-      </StyleProvider>
+      <StyleProvider style={getTheme(sguide)}>
+        <View style={styles.mainContainer}>
+
+          {this.renderMap()}
+          {/* <View style={styles.absoluteWraper}>
+            {this.renderHeader()}
+          </View> */}
+          <BottomPlaceList />
+
+          {/* <View style={styles.headerWraper}> */}
+          {this.renderHeader()}
+          {/* </View> */}
+        </View>
+
+      </StyleProvider >
     )
   }
 }
@@ -125,8 +132,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchTourById: (id = 1) => dispatch(PlacesActions.placesByTourRequest(id))
+    fetchPlaces: () => dispatch(PlacesActions.placesRequest())
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(TourMapScreen)
+export default connect(mapStateToProps, mapDispatchToProps)(MainMapScreen)

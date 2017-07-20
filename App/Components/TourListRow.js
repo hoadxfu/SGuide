@@ -9,7 +9,7 @@ export default class TourListRow extends React.Component {
   render () {
     const { tour, navigation } = this.props
     return (
-      <TouchableOpacity onPress={() => navigation.navigate('TourDetailScreen')}>
+      <TouchableOpacity onPress={() => navigation.navigate('TourDetailScreen', {tour})}>
         <View style={styles.container}>
           <View style={styles.info}>
             <Text

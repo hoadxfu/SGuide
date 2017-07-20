@@ -1,59 +1,57 @@
 import { createReducer, createActions } from 'reduxsauce'
 import Immutable from 'seamless-immutable'
+import destruct from '../Transforms/DestructPlacesFromResponse'
 
 /* ------------- Types and Action Creators ------------- */
 
 const { Types, Creators } = createActions({
-  dataChanged: ['data']
+  placesRequest: ['data'],
+  placesByTourRequest: ['data'],
+  placesSuccess: ['payload'],
+  placesFailure: null
 })
-// for testing
-export const GithubTypes = Types
 
-// action creators
+export const PlacesTypes = Types
 export default Creators
 
 /* ------------- Initial State ------------- */
 
 export const INITIAL_STATE = Immutable({
-  sight: [
-    { title: 'Alaska', img: 'https://unsplash.it/800/600/?random', rate: 4.5, rateNumber: 131 },
-    { title: 'Alaska', img: 'https://unsplash.it/800/600/?random', rate: 4.5, rateNumber: 131 },
-    { title: 'Alaska', img: 'https://unsplash.it/800/600/?random', rate: 4.5, rateNumber: 131 },
-    { title: 'Alaska', img: 'https://unsplash.it/800/600/?random', rate: 4.5, rateNumber: 131 },
-    { title: 'Alaska', img: 'https://unsplash.it/800/600/?random', rate: 4.5, rateNumber: 131 },
-    { title: 'Alaska', img: 'https://unsplash.it/800/600/?random', rate: 4.5, rateNumber: 131 },
-    { title: 'Alaska', img: 'https://unsplash.it/800/600/?random', rate: 4.5, rateNumber: 131 }
-  ],
-  food: [
-    { title: 'Food', img: 'https://unsplash.it/800/600/?random', rate: 3, rateNumber: 72 },
-    { title: 'Food', img: 'https://unsplash.it/800/600/?random', rate: 3, rateNumber: 72 },
-    { title: 'Food', img: 'https://unsplash.it/800/600/?random', rate: 3, rateNumber: 72 },
-    { title: 'Food', img: 'https://unsplash.it/800/600/?random', rate: 3, rateNumber: 72 },
-    { title: 'Food', img: 'https://unsplash.it/800/600/?random', rate: 3, rateNumber: 72 },
-    { title: 'Food', img: 'https://unsplash.it/800/600/?random', rate: 3, rateNumber: 72 },
-    { title: 'Food', img: 'https://unsplash.it/800/600/?random', rate: 3, rateNumber: 72 }
-  ],
-  play: [
-    { title: 'Playground', img: 'https://unsplash.it/800/600/?random', rate: 5, rateNumber: 21 },
-    { title: 'Playground', img: 'https://unsplash.it/800/600/?random', rate: 5, rateNumber: 21 },
-    { title: 'Playground', img: 'https://unsplash.it/800/600/?random', rate: 5, rateNumber: 21 },
-    { title: 'Playground', img: 'https://unsplash.it/800/600/?random', rate: 5, rateNumber: 21 },
-    { title: 'Playground', img: 'https://unsplash.it/800/600/?random', rate: 5, rateNumber: 21 },
-    { title: 'Playground', img: 'https://unsplash.it/800/600/?random', rate: 5, rateNumber: 21 },
-    { title: 'Playground', img: 'https://unsplash.it/800/600/?random', rate: 5, rateNumber: 21 }
-  ]
+  data: null,
+  fetching: null,
+  payload: null,
+  error: null
 })
 
 /* ------------- Reducers ------------- */
-// data changed event handler when receive data
-export const dataChanged = (state, action) => {
-  const { data } = action
-  const { sight, food, play } = data
-  return state.merge({ sight, food, play })
+
+// request the data from an api
+export const request = (state, { data }) => {
+  console.log('Making request, data=')
+  console.log(data)
+  return state.merge({ fetching: true, data, payload: null })
+}
+
+// successful api lookup
+export const success = (state, action) => {
+  const payload = destruct(action.payload)
+
+  console.log('fetch success, state.payload= ')
+  console.log(payload)
+  return state.merge({ fetching: false, error: null, payload })
+}
+
+// Something went wrong somewhere.
+export const failure = state => {
+  console.log('fetch FAILDED')
+  return state.merge({ fetching: false, error: true, payload: null })
 }
 
 /* ------------- Hookup Reducers To Types ------------- */
 
 export const reducer = createReducer(INITIAL_STATE, {
-  [Types.DATA_CHANGED]: dataChanged
+  [Types.PLACES_REQUEST]: request,
+  [Types.PLACES_BY_TOUR_REQUEST]: request,
+  [Types.PLACES_SUCCESS]: success,
+  [Types.PLACES_FAILURE]: failure
 })
