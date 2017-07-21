@@ -14,6 +14,7 @@ import { TourListTypes } from '../Redux/TourListRedux'
 import { PlaceListTypes } from '../Redux/PlaceListRedux'
 import { TourTypes } from '../Redux/TourRedux'
 import { TourListRealmTypes } from '../Redux/TourListRealmRedux'
+import { PlaceListRealmTypes } from '../Redux/PlaceListRealmRedux'
 import { TourRealmTypes } from '../Redux/TourRealmRedux'
 import { APIToursTypes } from '../Redux/APIToursRedux'
 
@@ -25,6 +26,7 @@ import { getTourList } from './TourListSagas'
 import { getPlaceList } from './PlaceListSagas'
 import { getTour } from './TourSagas'
 import { getTourListRealm } from './TourListRealmSagas'
+import { getPlaceListRealm } from './PlaceListRealmSagas'
 import { getTourRealm } from './TourRealmSagas'
 import { getAPITours } from './APIToursSagas'
 
@@ -56,6 +58,9 @@ export default function * root () {
 
     // get tour list from realm
     takeEvery(TourListRealmTypes.TOUR_LIST_REALM_REQUEST, getTourListRealm),
+
+    // get place list from realm
+    takeEvery(PlaceListRealmTypes.PLACE_LIST_REALM_REQUEST, getPlaceListRealm),
 
     // get tour from realm
     takeLatest(TourRealmTypes.TOUR_REALM_REQUEST, getTourRealm),

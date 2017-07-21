@@ -11,9 +11,10 @@ export default () => {
     places: require('./PlacesRedux').reducer,
     tours: require('./APIToursRedux').reducer,
     tourList: require('./TourListRedux').reducer,
-    tourListRealm: require('./TourListRealmRedux').reducer,
-    tourRealm: require('./TourRealmRedux').reducer,
     placeList: require('./PlaceListRedux').reducer,
+    tourListRealm: require('./TourListRealmRedux').reducer,
+    placeListRealm: require('./PlaceListRealmRedux').reducer,
+    tourRealm: require('./TourRealmRedux').reducer,
     tour: require('./TourRedux').reducer
   })
 
