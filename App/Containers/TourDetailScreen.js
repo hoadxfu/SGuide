@@ -57,7 +57,7 @@ class TourDetailScreen extends React.Component {
               buttonLeft={
                 <Button
                   transparent
-                  onPress={() => this.props.navigation.navigate('MainScreen')}>
+                  onPress={() => this.props.navigation.goBack()}>
                   <Icon name='ios-arrow-back-outline' />
                 </Button>
               }

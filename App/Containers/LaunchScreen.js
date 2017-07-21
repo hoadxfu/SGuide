@@ -1,8 +1,6 @@
 import React from 'react'
 import { Text, View, NetInfo, StatusBar } from 'react-native'
-import { Metrics } from '../Themes'
 import Animation from 'lottie-react-native'
-import Icon from 'react-native-vector-icons/FontAwesome'
 // Styles
 import styles from './Styles/LaunchScreenStyles'
 
@@ -17,13 +15,6 @@ import realm from '../Models'
 import anim from '../Themes/material_wave_loading.json'
 
 class LaunchScreen extends React.Component {
-  static navigationOptions = {
-    drawerLabel: 'Launch Screen',
-    drawerIcon: ({ tintColor }) => (
-      <Icon name='rocket' size={Metrics.iconDrawerSize} color={tintColor} />
-    )
-  }
-
   constructor (props) {
     super(props)
     this.state = {
