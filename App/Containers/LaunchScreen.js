@@ -1,5 +1,5 @@
 import React from 'react'
-import { Text, View, NetInfo, StatusBar } from 'react-native'
+import { Text, View, NetInfo, StatusBar, Platform } from 'react-native'
 import Animation from 'lottie-react-native'
 // Styles
 import styles from './Styles/LaunchScreenStyles'
@@ -83,7 +83,7 @@ class LaunchScreen extends React.Component {
               height: 100
             }}
             loop
-            source={anim}
+            source={(Platform.OS === 'ios') ? anim : 'material_wave_loading.json'}
           />
         </View>
         <Text style={styles.welcome}>loading data</Text>
