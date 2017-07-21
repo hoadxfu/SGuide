@@ -1,5 +1,5 @@
 import React from 'react'
-import { Text, View, NetInfo, StatusBar, Platform } from 'react-native'
+import { Text, View, StatusBar, Platform } from 'react-native'
 import Animation from 'lottie-react-native'
 // Styles
 import styles from './Styles/LaunchScreenStyles'
@@ -30,6 +30,7 @@ class LaunchScreen extends React.Component {
         // upadate tours from api to realm db
         realm.create('Tour', tour, true)
       })
+      this.props.navigation.navigate('MainScreen')
       this.setState({ readyToLaunch: true })
     })
   }
@@ -45,28 +46,30 @@ class LaunchScreen extends React.Component {
   }
 
   componentWillMount () {
+    this.props.fetchAPITours()
     // check network connected
-    NetInfo.isConnected.fetch().then().done(() => {
-      NetInfo.isConnected.addEventListener(
-        'change',
-        (isConnected) => {
-          // change state
-          this.setState({
-            networkStatus: isConnected ? 'online' : 'offline'
-          })
-          isConnected && this.props.fetchAPITours()
-        })
-    })
+    // NetInfo.isConnected.fetch().then().done(() => {
+    //   NetInfo.isConnected.addEventListener(
+    //     'change',
+    //     (isConnected) => {
+    //       // change state
+    //       console.log(isConnected)
+    //       this.setState({
+    //         networkStatus: isConnected ? 'online' : 'offline'
+    //       })
+    //       isConnected && this.props.fetchAPITours()
+    //     })
+    // })
   }
 
   componentDidUpdate () {
     // if network is online and data has already stored to db then navigate user to mainscreen
-    this.state.networkStatus === 'online' &&
-      this.state.readyToLaunch &&
-        this.props.navigation.navigate('MainScreen')
+    // this.state.networkStatus === 'online' &&
+    //   this.state.readyToLaunch &&
+    //     this.props.navigation.navigate('MainScreen')
     // if network is offline then navigate user to mainscreen
-    this.state.networkStatus === 'offline' &&
-        this.props.navigation.navigate('MainScreen')
+    // this.state.networkStatus === 'offline' &&
+    //     this.props.navigation.navigate('MainScreen')
   }
 
   render () {
