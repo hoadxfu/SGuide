@@ -20,7 +20,7 @@ import {
 import getTheme from '../../native-base-theme/components'
 import sguide from '../../native-base-theme/variables/sguide'
 // Add Actions - replace 'Your' with whatever your reducer is called :)
-import TourListActions from '../Redux/TourListRedux'
+import TourListRealmActions from '../Redux/TourListRealmRedux'
 
 // Styles
 import styles from './Styles/MainScreenStyle'
@@ -92,14 +92,14 @@ class MainScreen extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-  const { tourList } = state.tourList
+  const { tourList } = state.tourListRealm
   return {
     tourList
   }
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchTourList: () => dispatch(TourListActions.tourListRequest())
+  fetchTourList: () => dispatch(TourListRealmActions.tourListRealmRequest())
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(MainScreen)

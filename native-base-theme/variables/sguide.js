@@ -142,12 +142,12 @@ export default {
   tabActiveBgColor: platform === 'ios' ? '#1569f4' : undefined,
 
   // Tab
-  tabDefaultBg: '#2874F0',
-  topTabBarTextColor: '#b3c7f9',
-  topTabBarActiveTextColor: '#fff',
+  tabDefaultBg: '#fff',
+  topTabBarTextColor: '#000',
+  topTabBarActiveTextColor: '#2874F0',
   topTabActiveBgColor: platform === 'ios' ? '#1569f4' : undefined,
   topTabBarBorderColor: '#fff',
-  topTabBarActiveBorderColor: '#fff',
+  topTabBarActiveBorderColor: '#2874F0',
 
   // Header
   toolbarBtnColor: '#fff',

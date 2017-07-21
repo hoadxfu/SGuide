@@ -26,8 +26,7 @@ import sguide from '../../native-base-theme/variables/sguide'
 import StarRating from 'react-native-star-rating'
 
 // Add Actions - replace 'Your' with whatever your reducer is called :)
-import TourActions from '../Redux/TourRedux'
-import PlaceActions from '../Redux/PlaceListRedux'
+import TourRealmActions from '../Redux/TourRealmRedux'
 
 // Styles
 import styles from './Styles/TourDetailScreenStyle'
@@ -45,7 +44,6 @@ class TourDetailScreen extends React.Component {
 
   componentWillMount () {
     this.props.fetchTour(this.props.navigation.state.params.tourId)
-    this.props.fetchPlaceList(this.props.navigation.state.params.tourId)
   }
 
   render () {
@@ -59,7 +57,7 @@ class TourDetailScreen extends React.Component {
               buttonLeft={
                 <Button
                   transparent
-                  onPress={() => this.props.navigation.goBack()}>
+                  onPress={() => this.props.navigation.navigate('MainScreen')}>
                   <Icon name='ios-arrow-back-outline' />
                 </Button>
               }
@@ -94,15 +92,14 @@ class TourDetailScreen extends React.Component {
                 </Content>
               </Tab>
               <Tab heading='Places'>
-                {
-                  this.props.placeList && <CustomListView
-                    renderRow={(rowData) =>
-                      <PlaceListRow
-                        navigation={this.props.navigation} place={rowData} />
-                    }
-                    dataSource={this.props.placeList} />
-                }
+                <CustomListView
+                  renderRow={(rowData) =>
+                    <PlaceListRow
+                      navigation={this.props.navigation} place={rowData} />
+                  }
+                  dataSource={tour.places} />
               </Tab>
+              <Tab heading='Review' />
             </Tabs>
           </Container>
         </StyleProvider>
@@ -120,17 +117,14 @@ class TourDetailScreen extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-  const { tour } = state.tour
-  const { placeList } = state.placeList
+  const { tour } = state.tourRealm
   return {
-    tour,
-    placeList
+    tour
   }
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchTour: (tourId) => dispatch(TourActions.tourRequest(tourId)),
-  fetchPlaceList: (tourId) => dispatch(PlaceActions.placeListRequest(tourId))
+  fetchTour: (tourId) => dispatch(TourRealmActions.tourRealmRequest(tourId))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(TourDetailScreen)
