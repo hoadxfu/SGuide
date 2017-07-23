@@ -1,35 +1,109 @@
 import React from 'react'
-import { ScrollView, Text, Image, View } from 'react-native'
-import { Images, Metrics } from '../Themes'
-import Icon from 'react-native-vector-icons/FontAwesome'
+import { Text, View, StatusBar, Platform } from 'react-native'
+import Animation from 'lottie-react-native'
 // Styles
 import styles from './Styles/LaunchScreenStyles'
 
-export default class LaunchScreen extends React.Component {
-  static navigationOptions = {
-    drawerLabel: 'Launch Screen',
-    drawerIcon: ({ tintColor }) => (
-      <Icon name='rocket' size={Metrics.iconDrawerSize} color={tintColor} />
-    )
-  };
+// Add Actions - replace 'Your' with whatever your reducer is called :)
+import APIToursActions from '../Redux/APIToursRedux'
+
+import { connect } from 'react-redux'
+
+// database
+import realm from '../Models'
+
+import anim from '../Themes/material_wave_loading.json'
+
+class LaunchScreen extends React.Component {
+  constructor (props) {
+    super(props)
+    this.state = {
+      networkStatus: 'offline',
+      readyToLaunch: false
+    }
+  }
+
+  handleStorageData (nextProps) {
+    // save tour list to model
+    nextProps.tours && realm.write(() => {
+      nextProps.tours.forEach((tour) => {
+        // upadate tours from api to realm db
+        realm.create('Tour', tour, true)
+      })
+      this.props.navigation.navigate('MainScreen')
+      this.setState({ readyToLaunch: true })
+    })
+  }
+
+  componentWillReceiveProps (nextProps) {
+    // start save api data to realm db
+    this.handleStorageData(nextProps)
+  }
+
+  componentDidMount () {
+    // start loading animation
+    this.animation.play()
+  }
+
+  componentWillMount () {
+    this.props.fetchAPITours()
+    // check network connected
+    // NetInfo.isConnected.fetch().then().done(() => {
+    //   NetInfo.isConnected.addEventListener(
+    //     'change',
+    //     (isConnected) => {
+    //       // change state
+    //       console.log(isConnected)
+    //       this.setState({
+    //         networkStatus: isConnected ? 'online' : 'offline'
+    //       })
+    //       isConnected && this.props.fetchAPITours()
+    //     })
+    // })
+  }
+
+  componentDidUpdate () {
+    // if network is online and data has already stored to db then navigate user to mainscreen
+    // this.state.networkStatus === 'online' &&
+    //   this.state.readyToLaunch &&
+    //     this.props.navigation.navigate('MainScreen')
+    // if network is offline then navigate user to mainscreen
+    // this.state.networkStatus === 'offline' &&
+    //     this.props.navigation.navigate('MainScreen')
+  }
+
   render () {
     return (
-      <View style={styles.mainContainer}>
-        <Image source={Images.background} style={styles.backgroundImage} resizeMode='stretch' />
-        <ScrollView style={styles.container}>
-          <View style={styles.centered}>
-            <Image source={Images.launch} style={styles.logo} />
-          </View>
-
-          <View style={styles.section} >
-            <Image source={Images.ready} />
-            <Text style={styles.sectionText}>
-              This probably isn't what your app is going to look like. Unless your designer handed you this screen and, in that case, congrats! You're ready to ship. For everyone else, this is where you'll see a live preview of your fully functioning app using Ignite.
-            </Text>
-          </View>
-
-        </ScrollView>
+      <View style={styles.container}>
+        <StatusBar hidden />
+        <View>
+          <Animation
+            ref={animation => {
+              this.animation = animation
+            }}
+            style={{
+              width: 100,
+              height: 100
+            }}
+            loop
+            source={(Platform.OS === 'ios') ? anim : 'material_wave_loading.json'}
+          />
+        </View>
+        <Text style={styles.welcome}>loading data</Text>
       </View>
     )
   }
 }
+
+const mapStateToProps = (state) => {
+  const { tours } = state.tours
+  return {
+    tours
+  }
+}
+
+const mapDispatchToProps = (dispatch) => ({
+  fetchAPITours: () => dispatch(APIToursActions.apiToursRequest())
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(LaunchScreen)

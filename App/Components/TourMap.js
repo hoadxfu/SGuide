@@ -4,7 +4,7 @@ import MapView from 'react-native-maps'
 import TourMapCallout from './TourMapCallout'
 import Styles from './Styles/TourMapStyles'
 import { Thumbnail } from 'native-base'
-import Icon from 'react-native-vector-icons/FontAwesome'
+// import Icon from 'react-native-vector-icons/FontAwesome'
 
 // Generate this MapHelpers file with `ignite generate map-utilities`
 // You must have Ramda as a dev dependency to use this.
@@ -30,7 +30,7 @@ class TourMap extends React.Component {
   * For full documentation, see https://github.com/lelandrichardson/react-native-maps
   *************************************************************/
 
-  constructor(props) {
+  constructor (props) {
     super(props)
     /* ***********************************************************
     * STEP 1
@@ -74,7 +74,7 @@ class TourMap extends React.Component {
     this.renderMapMarkers = this.renderMapMarkers.bind(this)
     this.onRegionChange = this.onRegionChange.bind(this)
   }
-  pushCords(newCoords) {
+  pushCords (newCoords) {
     console.log('pushing cords')
     this.setState(state => ({
       // state.coords.push(newCoords)
@@ -84,7 +84,7 @@ class TourMap extends React.Component {
     })
     )
   }
-  addCordinates(originLocation, destinationLocation, waypoints = null) {
+  addCordinates (originLocation, destinationLocation, waypoints = null) {
     const mode = 'walking' // 'walking';
     const origin = '' + originLocation.latitude + ',' + originLocation.longitude
     const destination = '' + destinationLocation.latitude + ',' + destinationLocation.longitude
@@ -121,14 +121,14 @@ class TourMap extends React.Component {
   }
 
   // transforms something like this geocFltrhVvDsEtA}ApSsVrDaEvAcBSYOS_@... to an array of coordinates
-  componentWillMount() {
+  componentWillMount () {
     // todo debugging
     if (this.props.enableLines === true) {
       this.fetchLineCoordinates()
     }
   }
 
-  fetchLineCoordinates() {
+  fetchLineCoordinates () {
     const locations = this.props.locations
     console.log('starting componentWillMount(), locations=')
     console.log(locations)
@@ -150,7 +150,7 @@ class TourMap extends React.Component {
 
   watchID = null
 
-  componentWillReceiveProps(newProps) {
+  componentWillReceiveProps (newProps) {
     /* ***********************************************************
     * STEP 3
     * If you wish to recenter the map on new locations any time the
@@ -170,7 +170,7 @@ class TourMap extends React.Component {
       { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000 })
   }
 
-  onRegionChange(newRegion) {
+  onRegionChange (newRegion) {
     /* ***********************************************************
     * STEP 4
     * If you wish to fetch new locations when the user changes the
@@ -180,7 +180,7 @@ class TourMap extends React.Component {
     // Fetch new data...
   }
 
-  calloutPress(location) {
+  calloutPress (location) {
     /* ***********************************************************
     * STEP 5
     * Configure what will happen (if anything) when the user
@@ -189,7 +189,7 @@ class TourMap extends React.Component {
     // console.tron.log(location) // Reactotron
   }
 
-  renderMapRoutes() {
+  renderMapRoutes () {
     if (this.state.coords.length) {
       console.log('renderingMaproutes:: this.state.coords=')
       console.log(this.state.coords)
@@ -205,7 +205,7 @@ class TourMap extends React.Component {
       )
     }
   }
-  renderMapMarkers(location) {
+  renderMapMarkers (location) {
     /* ***********************************************************
     * STEP 6
     * Customize the appearance and location of the map marker.
@@ -227,7 +227,7 @@ class TourMap extends React.Component {
     }
   }
 
-  render() {
+  render () {
     const locations = this.props.locations
 
     return (

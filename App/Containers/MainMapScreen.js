@@ -15,7 +15,8 @@ import {
 
 import BottomPlaceList from './BottomPlaceList'
 // Add Actions - replace 'Your' with whatever your reducer is called :)
-import PlacesActions from '../Redux/PlacesRedux'
+// import PlacesActions from '../Redux/PlacesRedux'
+import PlacesActions from '../Redux/PlaceListRealmRedux'
 
 // themes
 import getTheme from '../../native-base-theme/components'
@@ -125,14 +126,14 @@ class MainMapScreen extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    places: state.places.payload,
-    fetching: state.places.fetching
+    places: state.placeListRealm.placeList,
+    fetching: state.placeListRealm.fetching
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchPlaces: () => dispatch(PlacesActions.placesRequest())
+    fetchPlaces: () => dispatch(PlacesActions.placeListRealmRequest())
   }
 }
 

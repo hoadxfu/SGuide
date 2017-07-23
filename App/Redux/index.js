@@ -8,9 +8,14 @@ export default () => {
     nav: require('./NavigationRedux').reducer,
     github: require('./GithubRedux').reducer,
     search: require('./SearchRedux').reducer,
-    places: require('./PlacesRedux').reducer,
-    tourList: require('./TourListRedux').reducer,
-    tour: require('./TourRedux').reducer
+    // places: require('./PlacesRedux').reducer,
+    tours: require('./APIToursRedux').reducer,
+    // tourList: require('./TourListRedux').reducer,
+    // placeList: require('./PlaceListRedux').reducer,
+    tourListRealm: require('./TourListRealmRedux').reducer,
+    placeListRealm: require('./PlaceListRealmRedux').reducer,
+    tourRealm: require('./TourRealmRedux').reducer
+    // tour: require('./TourRedux').reducer
   })
 
   return configureStore(rootReducer, rootSaga)

@@ -1,6 +1,11 @@
 import React from 'react'
 import { View } from 'react-native'
-import { TourList } from '../Components'
+// custom component
+import {
+  CustomListView,
+  NavigationBar,
+  TourListRow
+} from '../Components'
 // import Animation from 'lottie-react-native'
 import { connect } from 'react-redux'
 
@@ -9,18 +14,13 @@ import {
   StyleProvider,
   Container,
   Content,
-  Header,
-  Left,
-  Body,
-  Title,
-  Right,
   Button,
   Icon
 } from 'native-base'
 import getTheme from '../../native-base-theme/components'
 import sguide from '../../native-base-theme/variables/sguide'
 // Add Actions - replace 'Your' with whatever your reducer is called :)
-import TourListActions from '../Redux/TourListRedux'
+import TourListRealmActions from '../Redux/TourListRealmRedux'
 
 // Styles
 import styles from './Styles/MainScreenStyle'
@@ -34,32 +34,46 @@ class MainScreen extends React.Component {
     this.props.fetchTourList()
   }
 
-  renderHeader () {
-    return (
-      <Header>
-        <Left>
-          <Button
-            transparent
-            onPress={() => this.props.navigation.navigate('DrawerOpen')}>
-            <Icon name='ios-menu-outline' />
-          </Button>
-        </Left>
-        <Body>
-          <Title>SGuide</Title>
-        </Body>
-        <Right>
-          <Button transparent>
-            <Icon name='ios-search-outline' />
-          </Button>
-        </Right>
-      </Header>
-    )
-  }
+  // renderHeader () {
+  //   return (
+  //     <Header>
+  //       <Left>
+  //         <Button
+  //           transparent
+  //           onPress={() => this.props.navigation.navigate('DrawerOpen')}>
+  //           <Icon name='ios-menu-outline' />
+  //         </Button>
+  //       </Left>
+  //       <Body>
+  //         <Title>SGuide</Title>
+  //       </Body>
+  //       <Right>
+  //         <Button transparent>
+  //           <Icon name='ios-search-outline' />
+  //         </Button>
+  //       </Right>
+  //     </Header>
+  //   )
+  // }
   render () {
     return (
       <StyleProvider style={getTheme(sguide)}>
         <Container>
-          {this.renderHeader()}
+          <NavigationBar
+            buttonLeft={
+              <Button
+                transparent
+                onPress={() => this.props.navigation.navigate('DrawerOpen')}>
+                <Icon name='ios-menu-outline' />
+              </Button>
+            }
+            buttonRight={
+              <Button transparent>
+                <Icon name='ios-search-outline' />
+              </Button>
+            }
+            title='SGuide'
+          />
           <Content>
             <View style={styles.navButtonGroup}>
               <View style={styles.navButton}>
@@ -83,7 +97,14 @@ class MainScreen extends React.Component {
                 </Button>
               </View>
             </View>
-            {this.props.tourList && <TourList navigation={this.props.navigation} dataSource={this.props.tourList} />}
+            {
+              this.props.tourList && <CustomListView
+                renderRow={(rowData) =>
+                  <TourListRow
+                    navigation={this.props.navigation} tour={rowData} />
+                }
+                dataSource={this.props.tourList} />
+            }
           </Content>
         </Container>
       </StyleProvider>
@@ -92,15 +113,14 @@ class MainScreen extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-  const { tourList } = state.tourList
+  const { tourList } = state.tourListRealm
   return {
     tourList
   }
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchTourList: () => dispatch(TourListActions.tourListRequest())
-
+  fetchTourList: () => dispatch(TourListRealmActions.tourListRealmRequest())
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(MainScreen)

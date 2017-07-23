@@ -16,16 +16,16 @@ import getTheme from '../../native-base-theme/components'
 import sguide from '../../native-base-theme/variables/sguide'
 
 // Add Actions - replace 'Your' with whatever your reducer is called :)
-import PlacesActions from '../Redux/PlacesRedux'
+// import PlacesActions from '../Redux/PlacesRedux'
 
 // Styles
 import styles from './Styles/TourMapScreenStyle'
 
 class TourMapScreen extends React.Component {
   componentWillMount () {
-    const { id } = this.props.navigation.state
+    // const { tour } = this.props.navigation.state
     // default = 1
-    this.props.fetchTourById(id)
+    // this.props.fetchTourById(id)
   }
 
   renderHeader () {
@@ -53,23 +53,26 @@ class TourMapScreen extends React.Component {
   }
 
   renderMap () {
-    console.log(this.props.fetching)
+    const places = this.props.places
+    const fetching = this.props.fetching
+    console.log(fetching)
 
-    if (this.props.fetching === null || this.props.fetching === true) {
+    if (fetching === null || fetching === true) {
       console.log('rendermap(), return null')
       return (<View />)
     } else {
       console.log('rendermap(), return this.props.places=')
-      console.log(this.props.places)
+      console.log(places)
 
       return (
-        <TourMap enableLines locations={this.props.places} />
+        <TourMap enableLines locations={places} />
       )
     }
   }
 
   render () {
     console.log('rendering TOURmapscreen')
+    // const places = this.props.places
     // const locations = [
     //   {
     //     title: 'Location A',
@@ -118,14 +121,14 @@ class TourMapScreen extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    places: state.places.payload,
-    fetching: state.places.fetching
+    places: state.tourRealm.tour.places,
+    fetching: state.tourRealm.fetching
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchTourById: (id = 1) => dispatch(PlacesActions.placesByTourRequest(id))
+    // fetchTourById: (id = 1) => dispatch(PlacesActions.placesByTourRequest(id))
   }
 }
 

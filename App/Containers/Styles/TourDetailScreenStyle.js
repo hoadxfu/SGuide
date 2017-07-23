@@ -25,5 +25,8 @@ export default StyleSheet.create({
       width: 0
     },
     zIndex: 1000
+  },
+  subtitle: {
+    color: Colors.snow
   }
 })
