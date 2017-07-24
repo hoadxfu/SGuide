@@ -60,7 +60,7 @@ export default function * root () {
     takeEvery(TourListRealmTypes.TOUR_LIST_REALM_REQUEST, getTourListRealm),
 
     // get place list from realm
-    takeEvery(PlaceListRealmTypes.PLACE_LIST_REALM_REQUEST, getPlaceListRealm),
+    takeLatest(PlaceListRealmTypes.PLACE_LIST_REALM_REQUEST, getPlaceListRealm),
 
     // get tour from realm
     takeLatest(TourRealmTypes.TOUR_REALM_REQUEST, getTourRealm),

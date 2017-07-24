@@ -31,9 +31,14 @@ class TourMapScreen extends React.Component {
   renderHeader () {
     return (<Header backgroundColor='transparent'>
       <Left>
-        <Button
+        {/* <Button
           transparent
           onPress={() => this.props.navigation.navigate('DrawerOpen')}>
+          <Icon name='ios-menu-outline' />
+        </Button> */}
+        <Button
+          transparent
+          onPress={() => null}>
           <Icon name='ios-menu-outline' />
         </Button>
       </Left>
@@ -53,58 +58,35 @@ class TourMapScreen extends React.Component {
   }
 
   renderMap () {
-    const places = this.props.places
-    const fetching = this.props.fetching
-    console.log(fetching)
+    const tour = this.props.navigation.state.params.tour
+    console.log('====================================')
+    console.log(tour)
+    console.log('====================================')
+    const places = tour.places
+    console.log('====================================')
+    console.log(places)
+    console.log('====================================')
+    // const fetching = this.props.fetching
+    // console.log(fetching)
 
-    if (fetching === null || fetching === true) {
-      console.log('rendermap(), return null')
-      return (<View />)
-    } else {
-      console.log('rendermap(), return this.props.places=')
-      console.log(places)
+    // if (fetching === null || fetching === true) {
+    // console.log('rendermap(), return null')
+    // return (<View />)
+    // } else {
+    // console.log('rendermap(), return this.props.places=')
+    // console.log(places)
 
-      return (
-        <TourMap enableLines locations={places} />
-      )
-    }
+    return (
+      <TourMap enableLines locations={places} />
+    )
+    // }
   }
 
   render () {
     console.log('rendering TOURmapscreen')
-    // const places = this.props.places
-    // const locations = [
-    //   {
-    //     title: 'Location A',
-    //     thumbnail: 'https://unsplash.it/200/300/?random',
-    //     description: 'abc xyz',
-    //     audio: '',
-    //     latitude: 21.041385,
-    //     longitude: 105.816966
-    //   },
-    //   {
-    //     title: 'Location B',
-    //     thumbnail: 'https://unsplash.it/200/300/?random',
-    //     description: 'abc xyz',
-    //     audio: '',
-    //     latitude: 21.023581,
-    //     longitude: 105.823987
-    //   }, {
-    //     title: 'Location C',
-    //     thumbnail: 'https://unsplash.it/200/300/?random',
-    //     description: 'abc xyz',
-    //     audio: '',
-    //     latitude: 21.003581,
-    //     longitude: 105.793987
-    //   }, {
-    //     title: 'Location D',
-    //     thumbnail: 'https://unsplash.it/200/300/?random',
-    //     description: 'abc xyz',
-    //     audio: '',
-    //     latitude: 21.063581,
-    //     longitude: 105.89987
-    //   }
-    // ]
+    console.log('====================================')
+    console.log(this.props)
+    console.log('====================================')
     return (
       <StyleProvider style={getTheme(sguide)}>
         < View style={styles.container} >
@@ -121,8 +103,8 @@ class TourMapScreen extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    places: state.tourRealm.tour.places,
-    fetching: state.tourRealm.fetching
+    // places: state.tourRealm.tour.places,
+    // fetching: state.tourRealm.fetching
   }
 }
 

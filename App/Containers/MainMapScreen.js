@@ -54,8 +54,9 @@ class MainMapScreen extends React.Component {
   }
 
   renderMap () {
+    console.log('====================================')
     console.log(this.props.fetching)
-
+    console.log('====================================')
     if (this.props.fetching === null || this.props.fetching === true) {
       console.log('rendermap(), return null')
       return (<View />)

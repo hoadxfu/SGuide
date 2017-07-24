@@ -5,6 +5,7 @@ import Immutable from 'seamless-immutable'
 
 const { Types, Creators } = createActions({
   placeListRealmRequest: null,
+  // getPlaceListByTourId: ['tourId'],
   placeListRealmSuccess: ['placeList'],
   placeListRealmFailure: null
 })
@@ -17,11 +18,15 @@ export default Creators
 export const INITIAL_STATE = Immutable({
   data: null,
   fetching: null,
-  placeList: null,
+  places: null,
   error: null
 })
 
 /* ------------- Reducers ------------- */
+//getPlaceList by Tour DId
+
+export const getPlaceListByTourId = (state, { tourId }) =>
+  state.merge({ fetching: true, data: tourId, placeList: null })
 
 // request the data from an api
 export const request = (state, { data }) =>
@@ -30,6 +35,11 @@ export const request = (state, { data }) =>
 // successful api lookup
 export const success = (state, action) => {
   const { placeList } = action
+  console.log('====================================');
+  console.log('place list realm success')
+  console.log(action);
+  console.log(placeList)
+  console.log('====================================');
   return state.merge({ fetching: false, error: null, placeList })
 }
 
@@ -40,6 +50,7 @@ export const failure = state =>
 /* ------------- Hookup Reducers To Types ------------- */
 
 export const reducer = createReducer(INITIAL_STATE, {
+  //  [Types.GET_PLACE_LIST_BY_TOUR_ID]: getPlaceListByTourId,
   [Types.PLACE_LIST_REALM_REQUEST]: request,
   [Types.PLACE_LIST_REALM_SUCCESS]: success,
   [Types.PLACE_LIST_REALM_FAILURE]: failure

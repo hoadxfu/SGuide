@@ -19,7 +19,11 @@ import realm from '../Models'
 export function * getTourListRealm (action) {
   // make the call to the api
   let tours = realm.objects('Tour')
-
+  console.log('====================================')
+  console.log('get tour list realm')
+  console.log(tours)
+  console.log('====================================')
+  tours = tours.map(tour => { return { ...tour, places: tour.places.slice() } })
   // success?
   if (tours) {
     yield put(TourListRealmActions.tourListRealmSuccess(tours))

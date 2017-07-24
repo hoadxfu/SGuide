@@ -19,12 +19,22 @@ import realm from '../Models'
 export function * getPlaceListRealm (api, action) {
   // make the call to the api
   let places = realm.objects('Place')
+  // places = places.map(x => Object.assign({}, x))
+  console.log('====================================')
+  console.log('getPlaceListRealm')
+  console.log(places)
+  console.log('====================================')
 
   // success?
   if (places) {
     // You might need to change the response here - do this with a 'transform',
     // located in ../Transforms/. Otherwise, just pass the data back from the api.
-    yield put(PlaceListRealmActions.placeListRealmSuccess(places))
+    // console.log('====================================');
+    // console.log('getPlaceListRealm, after if')
+    // console.log(places);
+    // console.log('====================================');
+
+    yield put(PlaceListRealmActions.placeListRealmSuccess(places.slice()))
   } else {
     yield put(PlaceListRealmActions.placeListRealmFailure())
   }

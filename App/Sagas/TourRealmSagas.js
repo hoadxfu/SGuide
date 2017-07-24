@@ -22,11 +22,23 @@ export function * getTourRealm (action) {
   let tours = realm.objects('Tour')
   let tour = tours.filtered('tour_id = "' + query + '"')
 
+  console.log('====================================')
+  console.log(tour[0])
+  console.log('====================================')
+
+  tour = tour[0]
+  tour = {...tour, places: tour.places.slice()}
+
+  // let places = tour.places
+
+  // convert from realm results to array
+  // tour.places = tour.places.map(x => Object.assign({}, x))
+
   // success?
   if (tour) {
     // You might need to change the response here - do this with a 'transform',
     // located in ../Transforms/. Otherwise, just pass the data back from the api.
-    yield put(TourRealmActions.tourRealmSuccess(tour[0]))
+    yield put(TourRealmActions.tourRealmSuccess(tour))
   } else {
     yield put(TourRealmActions.tourRealmFailure())
   }

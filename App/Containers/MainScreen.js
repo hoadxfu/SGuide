@@ -30,7 +30,7 @@ class MainScreen extends React.Component {
   //   super(props)
   // }
 
-  componentWillMount () {
+  componentWillMount() {
     this.props.fetchTourList()
   }
 
@@ -55,8 +55,13 @@ class MainScreen extends React.Component {
   //     </Header>
   //   )
   // }
-  render () {
+  render() {
+    console.log('====================================');
+    console.log('this.props.tourList=');
+    console.log(this.props.tourList)
+    console.log('====================================');
     return (
+
       <StyleProvider style={getTheme(sguide)}>
         <Container>
           <NavigationBar
@@ -77,12 +82,15 @@ class MainScreen extends React.Component {
           <Content>
             <View style={styles.navButtonGroup}>
               <View style={styles.navButton}>
-                <Button circle danger>
+                <Button circle danger
+                  onPress={() => this.props.navigation.navigate('MainMapScreen')}>
                   <Icon name='ios-map' />
                 </Button>
               </View>
               <View style={styles.navButton}>
-                <Button circle info>
+                <Button circle info
+
+                >
                   <Icon name='ios-navigate' />
                 </Button>
               </View>

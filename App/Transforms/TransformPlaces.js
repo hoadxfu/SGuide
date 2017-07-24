@@ -8,8 +8,8 @@ export default (payload) => {
     latitude: null,
     longitude: null
   }
-  console.log(payload)
-  console.log(typeof payload)
+  // console.log(payload)
+  // console.log(typeof payload)
   payload = payload.filter(
     (place) => {
       return (place.place_latitude !== '' && place.place_longitude !== '')

@@ -229,7 +229,12 @@ class TourMap extends React.Component {
 
   render () {
     const locations = this.props.locations
+    console.log('====================================')
+    console.log(locations)
+    console.log('====================================')
 
+    // locations.map((location) => null)
+    // return <View />
     return (
 
       <MapView
@@ -240,7 +245,7 @@ class TourMap extends React.Component {
         provider='google'
         region={this.state.lastPosition}
       >
-        {locations !== null ? locations.map((location) => this.renderMapMarkers(location)) : null}
+        {locations !== null ? locations.map(location => this.renderMapMarkers(location), this) : null}
         {this.renderMapRoutes()}
       </MapView>
 

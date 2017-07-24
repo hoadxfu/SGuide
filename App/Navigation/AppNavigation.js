@@ -1,4 +1,4 @@
-import BottomPlaceList from '../Containers/BottomPlaceList'
+// import BottomPlaceList from '../Containers/BottomPlaceList'
 import MainMapScreen from '../Containers/MainMapScreen'
 import { DrawerNavigator, StackNavigator } from 'react-navigation'
 import MainScreen from '../Containers/MainScreen'
@@ -15,7 +15,7 @@ import styles from './Styles/NavigationStyles'
 
 // Manifest of possible screens
 const SlideMenu = DrawerNavigator({
-  BottomPlaceList: { screen: BottomPlaceList },
+  // BottomPlaceList: { screen: BottomPlaceList },
   MainMapScreen: { screen: MainMapScreen },
 // const SlideMenu = DrawerNavigator({
   MainScreen: { screen: MainScreen },

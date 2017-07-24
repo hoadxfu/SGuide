@@ -51,6 +51,27 @@ class BottomPlaceList extends React.Component {
         audio: '',
         latitude: 21.063581,
         longitude: 105.89987
+      }, {
+        title: 'Location D',
+        thumbnail: 'https://unsplash.it/200/300/?random',
+        description: 'abc xyz',
+        audio: '',
+        latitude: 21.063581,
+        longitude: 105.89987
+      }, {
+        title: 'Location D',
+        thumbnail: 'https://unsplash.it/200/300/?random',
+        description: 'abc xyz',
+        audio: '',
+        latitude: 21.063581,
+        longitude: 105.89987
+      }, {
+        title: 'Location D',
+        thumbnail: 'https://unsplash.it/200/300/?random',
+        description: 'abc xyz',
+        audio: '',
+        latitude: 21.063581,
+        longitude: 105.89987
       }
     ]
     const dataObjects = locations
@@ -81,7 +102,7 @@ class BottomPlaceList extends React.Component {
     return <MyCustomCell title={rowData.title} description={rowData.description} />
   *************************************************************/
   renderRow (rowData) {
-    console.log(rowData)
+    // console.log(rowData)
     return (
       <View style={styles.row}>
         {/* source={{uri: rowData.thumbnail}}  */}
