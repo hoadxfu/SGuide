@@ -5,9 +5,9 @@ import PlaceModel from './PlaceModel'
 
 const realm = new Realm({
   schema: [PlaceModel, TourModel],
-  schemaVersion: 3
+  schemaVersion: 4
   // migration: (oldRealm, newRealm) => {
-  //   newRealm.deleteAll()
+  //   oldRealm.deleteAll()
   // }
 })
 

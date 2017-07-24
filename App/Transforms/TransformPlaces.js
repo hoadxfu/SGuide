@@ -1,8 +1,8 @@
 export default (payload) => {
   const INITIAL_PLACE = {
     id: null,
-    title: null,
-    thumbnail: 'https://unsplash.it/200/300/?random',
+    name: null,
+    album: 'https://unsplash.it/200/300/?random',
     audio: '',
     description: null,
     latitude: null,
@@ -19,7 +19,7 @@ export default (payload) => {
     return {
       ...INITIAL_PLACE,
       id: place.place_id,
-      title: place.place_name,
+      name: place.place_name,
       // thumbnail: place.place_album,
       description: place.place_description,
       audio: '',

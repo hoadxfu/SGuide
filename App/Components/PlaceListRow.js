@@ -20,7 +20,7 @@ export default class PlaceListRow extends React.Component {
         >
           <Text
             numberOfLines={1}
-            style={styles.title}>{place.place_name}</Text>
+            style={styles.title}>{place.name}</Text>
           <View style={styles.starRate}>
             <StarRating
               maxStars={5}

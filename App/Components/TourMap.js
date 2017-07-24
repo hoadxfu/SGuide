@@ -214,10 +214,10 @@ class TourMap extends React.Component {
 
     if (typeof location.longitude === 'number') {
       return (
-        <MapView.Marker key={location.title} anchor={{ x: 0.5, y: 0.5 }} flat coordinate={{ latitude: location.latitude, longitude: location.longitude }}>
+        <MapView.Marker key={location.name} anchor={{ x: 0.5, y: 0.5 }} flat coordinate={{ latitude: location.latitude, longitude: location.longitude }}>
           <View>
             {/* <Icon name='rocket' size={24} color='red' /> */}
-            <Thumbnail source={{ uri: location.thumbnail }} />
+            <Thumbnail source={{ uri: location.album }} />
           </View>
           <TourMapCallout location={location} onPress={this.calloutPress} />
         </MapView.Marker >

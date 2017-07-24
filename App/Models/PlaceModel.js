@@ -4,18 +4,18 @@ export default class PlaceModel extends Realm.Object {}
 
 PlaceModel.schema = {
   name: 'Place',
-  primaryKey: 'place_id',
+  primaryKey: 'id',
   properties: {
-    place_id: 'string',
-    place_name: 'string',
-    place_description: 'string',
-    place_website: { type: 'string', optional: true },
-    place_phone: { type: 'string', optional: true },
-    place_latitude: { type: 'string', optional: true },
-    place_longitude: { type: 'string', optional: true },
-    place_album: { type: 'string', optional: true },
-    place_audio: { type: 'string', optional: true },
-    place_video: { type: 'string', optional: true },
-    place_note: { type: 'string', optional: true }
+    id: 'string',
+    name: 'string',
+    description: 'string',
+    website: { type: 'string', optional: true },
+    phone: { type: 'string', optional: true },
+    latitude: { type: 'double', optional: true },
+    longitude: { type: 'double', optional: true },
+    album: { type: 'string', optional: true },
+    audio: { type: 'string', optional: true },
+    video: { type: 'string', optional: true },
+    note: { type: 'string', optional: true }
   }
 }
