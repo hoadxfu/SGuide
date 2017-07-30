@@ -23,8 +23,7 @@ export const INITIAL_STATE = Immutable({
 })
 
 /* ------------- Reducers ------------- */
-//getPlaceList by Tour DId
-
+// getPlaceList by Tour Id
 export const getPlaceListByTourId = (state, { tourId }) =>
   state.merge({ fetching: true, data: tourId, placeList: null })
 
@@ -35,11 +34,11 @@ export const request = (state, { data }) =>
 // successful api lookup
 export const success = (state, action) => {
   const { placeList } = action
-  console.log('====================================');
+  console.log('====================================')
   console.log('place list realm success')
-  console.log(action);
+  console.log(action)
   console.log(placeList)
-  console.log('====================================');
+  console.log('====================================')
   return state.merge({ fetching: false, error: null, placeList })
 }
 

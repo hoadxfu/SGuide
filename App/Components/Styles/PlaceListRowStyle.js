@@ -1,7 +1,7 @@
-import { StyleSheet } from 'react-native'
+import { StyleSheet, Dimensions } from 'react-native'
 import { Metrics, Colors } from '../../Themes/'
 
-// const window = Dimensions.get('window')
+const window = Dimensions.get('window')
 
 export default StyleSheet.create({
   container: {
@@ -9,35 +9,36 @@ export default StyleSheet.create({
     paddingTop: Metrics.titlePadding
   },
   row: {
-    flex: 1,
-    flexDirection: 'column',
-    justifyContent: 'flex-end',
+    flex: 1
+  },
+  backgroundImage: {
+    width: window.width,
     height: 200
   },
   title: {
+    flex: 3,
     fontFamily: 'Roboto',
     fontSize: 20,
-    alignSelf: 'flex-start',
     color: Colors.snow,
     textAlign: 'left',
-    backgroundColor: 'transparent'
-    // ,
-    // marginBottom: Metrics.baseMargin,
-    // marginLeft: Metrics.baseMargin
+    backgroundColor: 'transparent',
+    marginRight: 16
   },
   gradient_container: {
-    flex: 1,
-    height: 50,
-    flexDirection: 'column',
-    justifyContent: 'flex-end',
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    right: 0,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
     padding: Metrics.baseMargin
   },
   listContent: {
     // marginTop: Metrics.baseMargin
   },
   starRate: {
-    alignSelf: 'flex-end',
-    width: 100,
+    flex: 1,
+    paddingTop: 6,
     backgroundColor: 'transparent'
   }
 })

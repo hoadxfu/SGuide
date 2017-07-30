@@ -1,12 +1,13 @@
 // import BottomPlaceList from '../Containers/BottomPlaceList'
 import MainMapScreen from '../Containers/MainMapScreen'
 import { DrawerNavigator, StackNavigator } from 'react-navigation'
+import PlaceDetailScreen from '../Containers/PlaceDetailScreen'
 import MainScreen from '../Containers/MainScreen'
 import LaunchScreen from '../Containers/LaunchScreen'
 import TourMapScreen from '../Containers/TourMapScreen'
 import TourDetailScreen from '../Containers/TourDetailScreen'
-import PlacesScreen from '../Containers/PlacesScreen'
-import PackageScreen from '../Containers/PackageScreen'
+// import PlacesScreen from '../Containers/PlacesScreen'
+// import PackageScreen from '../Containers/PackageScreen'
 
 // import HorizontalPlaceList from '../Containers/HorizontalPlaceList'
 // import SightList from '../Containers/SightList'
@@ -15,13 +16,8 @@ import styles from './Styles/NavigationStyles'
 
 // Manifest of possible screens
 const SlideMenu = DrawerNavigator({
-  // BottomPlaceList: { screen: BottomPlaceList },
-  MainMapScreen: { screen: MainMapScreen },
-// const SlideMenu = DrawerNavigator({
   MainScreen: { screen: MainScreen },
-  LaunchScreen: { screen: LaunchScreen },
-  PlacesScreen: { screen: PlacesScreen },
-  PackageScreen: { screen: PackageScreen }
+  LaunchScreen: { screen: LaunchScreen }
 }, {
   initialRouteName: 'LaunchScreen',
   navigationOptions: {
@@ -31,9 +27,11 @@ const SlideMenu = DrawerNavigator({
 
 // Manifest of possible screens
 const PrimaryNav = StackNavigator({
+  PlaceDetailScreen: { screen: PlaceDetailScreen },
   HomeScreen: { screen: SlideMenu },
   TourMapScreen: { screen: TourMapScreen },
-  TourDetailScreen: { screen: TourDetailScreen }
+  TourDetailScreen: { screen: TourDetailScreen },
+  MainMapScreen: { screen: MainMapScreen }
 }, {
   // Default config for all screens
   headerMode: 'none',

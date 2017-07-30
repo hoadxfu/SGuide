@@ -34,8 +34,8 @@ class MainMapScreen extends React.Component {
       <Left>
         <Button
           transparent
-          onPress={() => this.props.navigation.navigate('DrawerOpen')}>
-          <Icon name='ios-menu-outline' />
+          onPress={() => this.props.navigation.goBack()}>
+          <Icon name='ios-arrow-back-outline' />
         </Button>
       </Left>
       <Body>

@@ -30,7 +30,7 @@ class MainScreen extends React.Component {
   //   super(props)
   // }
 
-  componentWillMount() {
+  componentWillMount () {
     this.props.fetchTourList()
   }
 
@@ -55,11 +55,11 @@ class MainScreen extends React.Component {
   //     </Header>
   //   )
   // }
-  render() {
-    console.log('====================================');
-    console.log('this.props.tourList=');
+  render () {
+    console.log('====================================')
+    console.log('this.props.tourList=')
     console.log(this.props.tourList)
-    console.log('====================================');
+    console.log('====================================')
     return (
 
       <StyleProvider style={getTheme(sguide)}>

@@ -12,7 +12,7 @@ import { Thumbnail } from 'native-base'
 
 let { width, height } = Dimensions.get('window')
 const ASPECT_RATIO = width / height
-const LATITUDE_DELTA = 0.5
+const LATITUDE_DELTA = 0.05
 const LONGITUDE_DELTA = LATITUDE_DELTA * ASPECT_RATIO
 
 /* ***********************************************************

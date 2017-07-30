@@ -38,8 +38,8 @@ class TourMapScreen extends React.Component {
         </Button> */}
         <Button
           transparent
-          onPress={() => null}>
-          <Icon name='ios-menu-outline' />
+          onPress={() => this.props.navigation.goBack()}>
+          <Icon name='ios-arrow-back-outline' />
         </Button>
       </Left>
       <Body>
