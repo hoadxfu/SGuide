@@ -46,13 +46,36 @@ class TourDetailScreen extends React.Component {
     this.props.fetchTour(this.props.navigation.state.params.tourId)
   }
 
+  renderNavigationBar () {
+    const { tour } = this.props
+    return (
+      <NavigationBar
+        hasTabs
+        buttonLeft={
+          <Button
+            transparent
+            onPress={() => this.props.navigation.goBack()}>
+            <Icon name='ios-arrow-back-outline' />
+          </Button>
+        }
+        buttonRight={
+          <Button transparent>
+            <Icon name='ios-download-outline' />
+          </Button>
+        }
+        title={tour.tour_name}
+      />
+    )
+  }
+
   render () {
     const { tour } = this.props
     return (
       tour && <View style={styles.container}>
         <StyleProvider style={getTheme(sguide)}>
           <Container>
-            <NavigationBar
+            {this.renderNavigationBar()}
+            {/* <NavigationBar
               hasTabs
               buttonLeft={
                 <Button
@@ -67,7 +90,7 @@ class TourDetailScreen extends React.Component {
                 </Button>
               }
               title={tour.tour_name}
-            />
+            /> */}
             <Tabs initialPage={0}>
               <Tab heading='Info'>
                 <Content>
@@ -105,10 +128,10 @@ class TourDetailScreen extends React.Component {
         </StyleProvider>
         <TouchableHighlight
           style={styles.btnLetGo}
-          onPress={() => this.props.navigation.navigate('TourMapScreen', {tour: tour})}>
+          onPress={() => this.props.navigation.navigate('TourMapScreen', { tour: tour })}>
           <Icon
             name='ios-navigate-outline'
-            style={{color: Colors.snow}}
+            style={{ color: Colors.snow }}
           />
         </TouchableHighlight>
       </View>

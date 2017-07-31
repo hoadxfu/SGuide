@@ -30,27 +30,28 @@ class MainMapScreen extends React.Component {
   }
 
   renderHeader () {
-    return (<Header backgroundColor='transparent'>
-      <Left>
-        <Button
-          transparent
-          onPress={() => this.props.navigation.goBack()}>
-          <Icon name='ios-arrow-back-outline' />
-        </Button>
-      </Left>
-      <Body>
-        <Title>SGuide</Title>
-      </Body>
-      <Right>
-        <Button transparent>
-          <Icon name='people' />
-        </Button>
-        <Button transparent>
-          <Icon name='ios-search-outline' />
-        </Button>
+    return (
+      <Header backgroundColor='transparent'>
+        <Left>
+          <Button
+            transparent
+            onPress={() => this.props.navigation.navigate('DrawerOpen')}>
+            <Icon name='ios-menu-outline' />
+          </Button>
+        </Left>
+        <Body>
+          <Title>SGuide</Title>
+        </Body>
+        <Right>
+          <Button transparent>
+            <Icon name='people' />
+          </Button>
+          <Button transparent>
+            <Icon name='ios-search-outline' />
+          </Button>
 
-      </Right>
-    </Header>)
+        </Right>
+      </Header>)
   }
 
   renderMap () {

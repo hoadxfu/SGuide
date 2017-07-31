@@ -1,7 +1,7 @@
 import React from 'react'
 import { View } from 'react-native'
 import { connect } from 'react-redux'
-import { TourMap } from '../Components'
+import { TourMap, NavigationBar } from '../Components'
 import {
   StyleProvider,
   Header,
@@ -82,6 +82,24 @@ class TourMapScreen extends React.Component {
     // }
   }
 
+  renderNavigationBar () {
+    const tour = this.props.navigation.state.params.tour
+    return (
+      <NavigationBar
+        hasTabs
+        buttonLeft={
+          <Button
+            transparent
+            onPress={() => this.props.navigation.goBack()}>
+            <Icon name='ios-arrow-back-outline' />
+          </Button>
+        }
+
+        title={tour.tour_name}
+      />
+
+    )
+  }
   render () {
     console.log('rendering TOURmapscreen')
     console.log('====================================')
@@ -89,11 +107,13 @@ class TourMapScreen extends React.Component {
     console.log('====================================')
     return (
       <StyleProvider style={getTheme(sguide)}>
-        < View style={styles.container} >
+        < View style={styles.mainContainer} >
           {this.renderMap()}
-          <View style={styles.headerWraper}>
-            {this.renderHeader()}
-          </View>
+          {this.renderNavigationBar()}
+
+          {/* <View style={styles.headerWraper}>
+            {this.renderNavigationBar()}
+          </View> */}
         </View >
 
       </StyleProvider>
