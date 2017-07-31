@@ -106,12 +106,18 @@ class BottomPlaceList extends React.Component {
     return (
       <View style={styles.row}>
         {/* source={{uri: rowData.thumbnail}}  */}
-
-        <Image
+        {/* TODO fix image  */}
+        {/* <Image
           style={styles.thumbnail}
           source={{ uri: rowData.thumbnail }}
-        />
+        /> */}
+        <Image
 
+          resizeMode='cover'
+          style={styles.thumbnail}
+          source={require('../Images/PlaceHolders/place_thumbnail.jpg')}
+
+        />
       </View>
     )
   }
@@ -147,7 +153,7 @@ class BottomPlaceList extends React.Component {
       <View style={styles.container}>
         <View style={styles.header}>
           <Text>Popular places</Text>
-          <TouchableOpacity oPress={() => {}} >
+          <TouchableOpacity oPress={() => { }} >
             <Text style={styles.buttonText}>SHOW MORE</Text>
           </TouchableOpacity >
 

@@ -64,14 +64,15 @@ class MainScreen extends React.Component {
 
       <StyleProvider style={getTheme(sguide)}>
         <Container>
-          <NavigationBar
-            buttonLeft={
+          {/* buttonLeft={
               <Button
                 transparent
                 onPress={() => this.props.navigation.navigate('DrawerOpen')}>
                 <Icon name='ios-menu-outline' />
               </Button>
-            }
+            }  */}
+          <NavigationBar
+           
             buttonRight={
               <Button transparent>
                 <Icon name='ios-search-outline' />

@@ -11,8 +11,8 @@ export default class PlaceListRow extends React.Component {
       <TouchableOpacity onPress={() => navigation.navigate('PlaceDetailScreen', {place: place})}>
         <View style={styles.row}>
           <Image
-            source={require('../Images/Icons/68595214-travelling-wallpapers.jpg')}
-            style={styles.backgroundImage} resizeMode='stretch' />
+            source={require('../Images/PlaceHolders/place.jpg')}
+            style={styles.backgroundImage} resizeMode='cover' />
           <LinearGradient colors={['transparent', 'rgba(0, 0, 0, 0.6)']}
             start={{ x: 0, y: 0.5 }}
             end={{ x: 0, y: 1 }}

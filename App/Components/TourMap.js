@@ -217,7 +217,10 @@ class TourMap extends React.Component {
         <MapView.Marker key={location.name} anchor={{ x: 0.5, y: 0.5 }} flat coordinate={{ latitude: location.latitude, longitude: location.longitude }}>
           <View>
             {/* <Icon name='rocket' size={24} color='red' /> */}
-            <Thumbnail source={{ uri: location.album }} />
+            {/* <Thumbnail source={{ uri: location.album }} /> */}
+            {/* TODO debugging  */}
+            <Thumbnail source={require('../Images/PlaceHolders/place_thumbnail.jpg')} />
+
           </View>
           <TourMapCallout location={location} onPress={this.calloutPress} />
         </MapView.Marker >

@@ -1,14 +1,9 @@
 import React from 'react'
 import { View } from 'react-native'
 import { connect } from 'react-redux'
-import { TourMap } from '../Components'
+import { NavigationBar, TourMap } from '../Components'
 import {
   StyleProvider,
-  Header,
-  Left,
-  Body,
-  Title,
-  Right,
   Button,
   Icon
 } from 'native-base'
@@ -30,28 +25,58 @@ class MainMapScreen extends React.Component {
   }
 
   renderHeader () {
+    //  <Left>
+    //       <Button
+    //         transparent
+    //         onPress={() => this.props.navigation.navigate('DrawerOpen')}>
+    //         <Icon name='ios-menu-outline' />
+    //       </Button>
+    //     </Left>
     return (
-      <Header backgroundColor='transparent'>
-        <Left>
+      <NavigationBar
+        hasTabs
+        buttonLeft={
           <Button
             transparent
-            onPress={() => this.props.navigation.navigate('DrawerOpen')}>
-            <Icon name='ios-menu-outline' />
+            onPress={() => this.props.navigation.goBack()}>
+            <Icon name='ios-arrow-back-outline' />
           </Button>
-        </Left>
-        <Body>
-          <Title>SGuide</Title>
-        </Body>
-        <Right>
-          <Button transparent>
-            <Icon name='people' />
-          </Button>
-          <Button transparent>
-            <Icon name='ios-search-outline' />
-          </Button>
+        }
+        buttonRight={
+          <View style={{ flexDirection: 'row' }}>
 
-        </Right>
-      </Header>)
+            <Button transparent>
+              <Icon name='people' />
+            </Button>
+            <Button transparent>
+              <Icon name='ios-search-outline' />
+            </Button>
+          </View>
+        }
+        title='Main Map'
+      />
+      // <Header backgroundColor='transparent'>
+      //   <Left>
+      //     <Button
+      //       transparent
+      //       onPress={() => this.props.navigation.goBack()}>
+      //       <Icon name='ios-arrow-back-outline' />
+      //     </Button>
+      //   </Left>
+      //   <Body>
+      //     <Title>SGuide</Title>
+      //   </Body>
+      //   <Right>
+      //     <Button transparent>
+      //       <Icon name='people' />
+      //     </Button>
+      //     <Button transparent>
+      //       <Icon name='ios-search-outline' />
+      //     </Button>
+
+      //   </Right>
+      // </Header>
+    )
   }
 
   renderMap () {

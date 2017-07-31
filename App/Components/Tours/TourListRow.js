@@ -29,10 +29,15 @@ export default class TourListRow extends React.Component {
               />
             </View>
           </View>
-          <Image
+          {/* <Image
             style={styles.image}
             source={{ uri: 'https://unsplash.it/300/200/?random' }}
             resizeMode='stretch'
+          />  */}
+          <Image
+            style={styles.image}
+            source={require('../../Images/PlaceHolders/place.jpg')}
+            resizeMode='cover'
           />
         </View>
       </TouchableOpacity>
